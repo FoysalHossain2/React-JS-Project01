@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Button = ({className, children}) => {
+const Button = ({className, title}) => {
   return (
     <>
       <div className={className ? className : 'p-5 bg-black text-white '}>
-        {children? children : "Non"}
+        {title? title : "Non"}
       </div>
     </>
   )
