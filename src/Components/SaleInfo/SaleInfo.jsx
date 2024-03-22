@@ -35,10 +35,10 @@ const SaleInfo = () => {
                    </picture>
                     <Overlay 
                       className={'top-1/2 -translate-y-1/2 left-10'} 
-                      title={'Phone sale'}
+                      title={'Electronics Sale'}
                       discountDetailsFirst={'up to'}
-                      discountAmount={'30%'}
-                      discountDetailsLast={'sale for all phones!'}
+                      discountAmount={'70%'}
+                      discountDetailsLast={'sale for all electronics!'}
                       btnTitle={'Shop Now'}
                     />
                  </div>
@@ -48,10 +48,10 @@ const SaleInfo = () => {
                     </picture>
                       <Overlay 
                         className={'top-1/2 -translate-y-1/2 left-10'} 
-                        title={'Phone sale'}
+                        title={'Furniture Offer'}
                         discountDetailsFirst={'up to'}
-                        discountAmount={'30%'}
-                        discountDetailsLast={'sale for all phones!'}
+                        discountAmount={'50%'}
+                        discountDetailsLast={'sale for all furniture items!'}
                         btnTitle={'Shop Now'}
                       />
                  </div>

@@ -17,7 +17,7 @@ const Overlay = ({
             </h2>
             <p className='font-DM_Sans opacity-75 text-main_text_color mb-[49px]'>
                {discountDetailsFirst}
-               <span className='font-bold text-[#262626] text-[40px] p-3'>
+               <span className='font-bold text-[#000] text-[40px] p-3'>
                 {discountAmount}
                 </span>
                 {discountDetailsLast}
