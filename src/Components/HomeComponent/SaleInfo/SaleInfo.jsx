@@ -1,10 +1,10 @@
 import React from 'react'
-import Flex from '../CommonComponents/Flex'
-import Ad_1 from '../../assets/Ad_1.png'
-import Ad_2 from '../../assets/Ad_2.png'
-import Ad_3 from '../../assets/Ad_3.png'
+import Flex from '../../CommonComponents/Flex'
+import Ad_1 from '../../../assets/Ad_1.png'
+import Ad_2 from '../../../assets/Ad_2.png'
+import Ad_3 from '../../../assets/Ad_3.png'
 // import Button from '../CommonComponents/Button'
-import Overlay from '../CommonComponents/Overlay'
+import Overlay from '../../CommonComponents/Overlay'
 
 const SaleInfo = () => {
   return (

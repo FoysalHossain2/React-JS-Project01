@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from '../../Components/Header/Header'
-import MenuBar from '../../Components/MenuBar/MenuBar'
-import Banner from '../../Components/Banner/Banner'
-import Shipping from '../../Components/Shipping/Shipping'
-import SaleInfo from '../../Components/SaleInfo/SaleInfo'
+import Header from '../../Components/HomeComponent/Header/Header'
+import MenuBar from '../../Components/HomeComponent/MenuBar/MenuBar'
+import Banner from '../../Components/HomeComponent/Banner/Banner'
+import Shipping from '../../Components/HomeComponent/Shipping/Shipping'
+import SaleInfo from '../../Components/HomeComponent/SaleInfo/SaleInfo'
 
 
 const Home = () => {

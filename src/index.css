@@ -7,7 +7,7 @@
     --bg_Secondary_color: #F5F5F3;
     --main_text_color: #262626;
     --secondary_text_color: #767676;
-    --DM__Sans: "DM Sans", sans-serif,
+    --DM__Sans: "DM Sans", sans-serif,;
 }
 
 
@@ -43,6 +43,7 @@
          font-weight: 400;
         color: val(--secondary_text_color);
     }
+
 }
 
 .slick-dots ul .slick-active div  {
@@ -51,3 +52,4 @@
     padding: 20px 0;
     border-right: 4px solid #fff;
 }
+

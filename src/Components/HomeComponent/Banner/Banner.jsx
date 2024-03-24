@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import BannerImg from '../../assets/BannerImg.png'
+import BannerImg from '../../../assets/BannerImg.png'
 
 
 

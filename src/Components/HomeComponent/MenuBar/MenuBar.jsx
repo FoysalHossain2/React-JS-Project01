@@ -1,12 +1,22 @@
+import { useState } from 'react'
 import React from 'react'
-import Flex from '../CommonComponents/Flex'
-import Search from '../CommonComponents/Search'
+import Flex from '../../CommonComponents/Flex'
+import Search from '../../CommonComponents/Search'
 import { HiMenuAlt2 } from "react-icons/hi";
 import { FaUser } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import { IoMdArrowDropup } from "react-icons/io";
 
 const  MenuBar = () => {
+
+  const [singUp, setSingUp] = useState(false)
+
+  const HandleClick = () => {
+    setSingUp(!singUp)
+  }
+
+
   return (
     <>
         <div className='py-10 bg-bg_Secondary_color'>
@@ -14,7 +24,7 @@ const  MenuBar = () => {
                <Flex className='items-center justify-between'>
                 <Flex className={'items-center gap-[10px] '}>
                   <HiMenuAlt2 className='cursor-pointer text-2xl' />
-                  <p className='font-normal text-sm text-[#C4C4C4]'>
+                  <p className='font-normal text-sm text-[#C4C4C4] hidden md:block'>
                     Shop by Category
                   </p>
                   </Flex>  
@@ -24,10 +34,10 @@ const  MenuBar = () => {
                  </div>
 
                  <div>
-                    <Flex className='gap-10'> 
-                      <div className='flex gap-1 cursor-pointer'>
+                    <Flex className='gap-4 md:gap-10 mt-[-108px] md:mt-0'> 
+                      <div className='flex gap-1 cursor-pointer ' onClick={HandleClick}>
                         <FaUser />
-                        <FaCaretDown />
+                        {singUp === true ? <IoMdArrowDropup /> : <FaCaretDown />}
                       </div>
                         <FaShoppingCart className='w-5 cursor-pointer' />
                    </Flex>
