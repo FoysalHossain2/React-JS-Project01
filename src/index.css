@@ -53,3 +53,7 @@
     border-right: 4px solid #fff;
 }
 
+.black-overly {
+    background-color: rgb(0, 0, 0, 0.7) !important;
+}
+

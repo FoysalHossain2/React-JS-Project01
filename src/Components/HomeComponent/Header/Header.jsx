@@ -18,9 +18,10 @@ const Header = () => {
 
   return (
     <>
+    
       <div className='py-[31px] bg-bg_Primary_color'>
          <div className="container">
-         <Flex className='sm:justify-between sm:items-center'>
+         <Flex className='sm:justify-between md:items-center'>
           <picture>
               <img src={Logo} alt={Logo} title='OREBI logo'  />
             </picture>

@@ -61,16 +61,42 @@ const Banner = () => {
           ) }
       
         </>
-      )
-    };
+      ),
 
-    console.log(currentSlide);
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 412,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1
+          }
+        },
+        {
+          breakpoint: 375,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false
+          }
+        }
+      ]
+    };
 
 
   return (
     <>
       <Slider {...settings}>
-      <div>
+      <div >
         <img src={BannerImg} alt="" />
       </div>
       <div>
