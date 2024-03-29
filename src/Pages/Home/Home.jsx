@@ -4,6 +4,7 @@ import MenuBar from '../../Components/HomeComponent/MenuBar/MenuBar'
 import Banner from '../../Components/HomeComponent/Banner/Banner'
 import Shipping from '../../Components/HomeComponent/Shipping/Shipping'
 import SaleInfo from '../../Components/HomeComponent/SaleInfo/SaleInfo'
+import NewArrivals from '../../Components/HomeComponent/NewArrivals/NewArrivals'
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Banner/>
       <Shipping/>
       <SaleInfo/>
+      <NewArrivals/>
     </>
   )
 }
