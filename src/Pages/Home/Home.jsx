@@ -5,6 +5,7 @@ import Banner from '../../Components/HomeComponent/Banner/Banner'
 import Shipping from '../../Components/HomeComponent/Shipping/Shipping'
 import SaleInfo from '../../Components/HomeComponent/SaleInfo/SaleInfo'
 import NewArrivals from '../../Components/HomeComponent/NewArrivals/NewArrivals'
+import {NewArrivalsData, BestsellersProduct} from '../../../Data/Data'
 
 
 const Home = () => {
@@ -15,7 +16,8 @@ const Home = () => {
       <Banner/>
       <Shipping/>
       <SaleInfo/>
-      <NewArrivals/>
+      <NewArrivals headingTitle="New Arrivals" ProductData={NewArrivalsData} />
+      <NewArrivals headingTitle="Our Bestseller" ProductData={BestsellersProduct} />
     </>
   )
 }
