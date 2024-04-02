@@ -1,10 +1,13 @@
 // import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import React from 'react'
+import Arrivals2 from '../../../assets/NewArrivals/Arrivals2.png'
 import Flex from '../../CommonComponents/Flex'
 import Search from '../../CommonComponents/Search'
+import Button from '../../CommonComponents/Button'
 import { HiMenuAlt2 } from "react-icons/hi";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
+import { FaXmark } from "react-icons/fa6";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
@@ -13,22 +16,29 @@ const  MenuBar = () => {
 
   const [singUp, setSingUp] = useState(false);
   const [showCategory, setShowCategory] =useState(false); 
+  const [ShoppingCart, setShoppingCart] =useState(false); 
 
   const HandleClick = () => {
     setSingUp(!singUp)
+    setShoppingCart(false)
+    setShowCategory(false)
   }
-
-
+  
+  
   // side showCategory function
   const HandleShowCategory = () => {
     setShowCategory(!showCategory)
+    setShoppingCart(false)
+    setSingUp(false)
   }
 
-
-  // hide Menubar
-  const hideMenu = () => {
+  // HandleShoppingCart function
+  const HandleShoppingCart = () => {
+    setShoppingCart(!ShoppingCart)
     setShowCategory(false)
-  } 
+    setSingUp(false)
+  }
+
 
 
 
@@ -84,7 +94,7 @@ const  MenuBar = () => {
                        {/* ------------------singUp overlay------------- */}
                         {singUp && (
 
-                        <div className='sm:w-[200px] w-full  left-0 sm:left-[1448px] z-10 mt-8 absolute bg-slate-800 text-center text-white'>
+                        <div className='sm:w-[200px] w-full right-0 md:mr-[250px] z-10 mt-8 absolute bg-slate-800 text-center text-white'>
                           <ul className=' divide-y divide-[#ffffff0c]'>
                             <li className=' py-4 hover:bg-slate-300 hover:text-black'><a href="#">My Account</a></li>
                             <li className=' py-4 hover:bg-slate-300'><a href="#">Log Out</a></li>
@@ -96,14 +106,45 @@ const  MenuBar = () => {
 
 
                         <div>
-                          <FaShoppingCart className='w-5 cursor-pointer' />
+                         <div onClick={HandleShoppingCart}>
+                            <FaShoppingCart className='w-5 cursor-pointer' />
+                         </div>
 
-                         {/* <div  className='w-[360px] h-[300px] bg-slate-600 absolute top-0 '>
-                            <div>
-                              <img src="" alt="" />
+                          {/* -----------------ShoppingCart overlay------------- */}
+                          {ShoppingCart && (
+
+                          <div  className='w-[360px] h-[260px] absolute mt-[30px] z-10 ml-[-320px] '>
+                            <Flex className={'justify-between items-center bg-bg_Secondary_color py-5 px-5'}>
+                              <div className='w-[80px] h-[80px]'>
+                                <img src={Arrivals2} alt={Arrivals2} />
+                              </div>
+                              <div className='-ml-8'>
+                                <p>Black Smart Watch</p>
+                                <span>$44.00</span>
+                              </div>
+                              <button  className='flex items-center justify-center w-7 h-7 hover:bg-zinc-400 rounded-full'>
+                                  <FaXmark  />
+                              </button>
+                            </Flex>
+                            <div className='py-5 px-5 bg-[#fff] flex items-start flex-col'>
+                              <p className='pb-4'>Subtotal: $44:00</p>
+
+                                <div className={'flex gap-x-10'}>
+                                  <Button
+                                    title={'View Cart'}
+                                    className={'py-3 px-8 border-2 border-[#262626] hover:text-white hover:bg-main_text_color cursor-pointer'}
+                                  />
+                                  <Button
+                                    title={'Checkout'}
+                                    className={'py-3 px-8 border-2 border-[#262626] hover:text-white hover:bg-main_text_color cursor-pointer'}
+                                  />
+                                </div>
                             </div>
-                         </div> */}
+                          </div>
+                          )}
+                          {/* -----------------ShoppingCart overlay------------- */}
                         </div>
+
                    </Flex>
                  </div>
               </Flex>
