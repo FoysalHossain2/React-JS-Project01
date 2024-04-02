@@ -4,10 +4,9 @@ import React from 'react'
 import Flex from '../../CommonComponents/Flex'
 import Search from '../../CommonComponents/Search'
 import { HiMenuAlt2 } from "react-icons/hi";
-import { FaUser } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
-import { MdOutlineArrowDropDown } from "react-icons/md";
-import { MdOutlineArrowDropUp } from "react-icons/md";
+import { FaUser, FaShoppingCart } from "react-icons/fa";
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 
 const  MenuBar = () => {
@@ -43,17 +42,31 @@ const  MenuBar = () => {
                   <p className='font-normal text-sm text-[#C4C4C4] hidden md:block hover:text-black '>
                     Shop by Category
                   </p>
-                  {/* Category MenuBar */}
-                  <div className={`w-[300px] h-[300px] mt-[350px]  bg-slate-800 z-10 absolute duration-300 text-white text-center ${showCategory === true ? 'md:left-[170px] left-0' : 'left-[-100%]'}`}>
-                    <ul className=' divide-y divide-[#ffffff07] '>
-                      <li  className='hover:bg-slate-900 py-3'>Accesories</li>
-                      <li  className='hover:bg-slate-900 py-3'><a href="#">Furniture</a></li>
-                      <li  className='hover:bg-slate-900 py-3'><a href="#">Electronics</a></li>
-                      <li  className='hover:bg-slate-900 py-3'><a href="#">Clothes</a></li>
-                      <li  className='hover:bg-slate-900 py-3'><a href="#">Bags</a></li>
-                      <li  className='hover:bg-slate-900 py-3'><a href="#">Home appliances</a></li>
-                    </ul>
-                  </div>
+
+                  {/*---------- Category MenuBar---------- */}
+                    <div className={`w-[300px] h-[300px] mt-[350px]  bg-slate-800 z-10 absolute duration-300 text-white text-center ${showCategory === true ? 'md:left-[170px] left-0' : 'left-[-100%]'}`}>
+                      <ul className=' divide-y divide-[#ffffff07] '>
+                        <li  className='hover:bg-slate-900 py-3'>
+                          <Link to={'Accesories'}>Accesories</Link>
+                        </li>
+                        <li  className='hover:bg-slate-900 py-3'>
+                        <Link to={'Furniture'}>Furniture</Link>
+                        </li>
+                        <li  className='hover:bg-slate-900 py-3'>
+                          <Link to={'Electronics'}>Electronics</Link>
+                        </li>
+                        <li  className='hover:bg-slate-900 py-3'>
+                          <Link to={'Clothes'}>Clothes</Link>
+                        </li>
+                        <li  className='hover:bg-slate-900 py-3'>
+                          <Link to={'Bags'}>Bags</Link>
+                        </li>
+                        <li  className='hover:bg-slate-900 py-3'>
+                          <Link to={'Home appliances'}>Home appliances</Link>
+                        </li>
+                      </ul>
+                    </div>
+                    {/*---------- Category MenuBar---------- */}
 
                   </Flex>  
 
@@ -68,7 +81,7 @@ const  MenuBar = () => {
                        <FaUser className={`${singUp ? 'text-orange-300' : null}`} />
                           {singUp === true ? <MdOutlineArrowDropUp className='text-[25px]' /> : <MdOutlineArrowDropDown className='text-[25px]' />}
                        </div>
-                       {/* singUp overlay */}
+                       {/* ------------------singUp overlay------------- */}
                         {singUp && (
 
                         <div className='sm:w-[200px] w-full  left-0 sm:left-[1448px] z-10 mt-8 absolute bg-slate-800 text-center text-white'>
@@ -79,6 +92,9 @@ const  MenuBar = () => {
                         </div>
                         )}
                       </div>
+                      {/* -----------------singUp overlay------------- */}
+
+
                         <div>
                           <FaShoppingCart className='w-5 cursor-pointer' />
 

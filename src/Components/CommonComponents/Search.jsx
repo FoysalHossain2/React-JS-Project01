@@ -6,7 +6,7 @@ const  Search = ({placeholder , className}) => {
   return (
     <>
         <Flex className='items-center bg-white px-4 shadow-sm Search__Products max-w-[600px] '>
-            <input type="text" placeholder={placeholder} className={`  py-4  pl-1 ${className}`}  />
+            <input type="text" placeholder={placeholder} className={`focus:outline-none md:w-[600px] w-auto py-4  ${className}`}  />
             <IoSearchOutline className='cursor-pointer' />
         </Flex>
     </>
@@ -14,3 +14,4 @@ const  Search = ({placeholder , className}) => {
 }
 
 export default Search
+
