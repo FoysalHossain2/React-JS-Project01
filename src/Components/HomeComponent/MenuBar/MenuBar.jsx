@@ -1,5 +1,5 @@
 // import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import React from 'react'
 import Arrivals2 from '../../../assets/NewArrivals/Arrivals2.png'
 import Flex from '../../CommonComponents/Flex'
@@ -17,6 +17,8 @@ const  MenuBar = () => {
   const [singUp, setSingUp] = useState(false);
   const [showCategory, setShowCategory] =useState(false); 
   const [ShoppingCart, setShoppingCart] =useState(false); 
+  const MenuRef = useRef()
+
 
   const HandleClick = () => {
     setSingUp(!singUp)
@@ -40,11 +42,26 @@ const  MenuBar = () => {
   }
 
 
+  // useRef functionality
+console.log(MenuRef.current);
+useEffect(() => {
+  window.addEventListener('click',(e) => {
+    if (!MenuRef.current.contains(e.target)) {
+      setShoppingCart(false)
+      setShowCategory(false)
+      setSingUp(false)
+    }
+  })
+
+}, [])
+
+
+
 
 
   return (
     <>   
-        <div className='py-10 bg-bg_Secondary_color'>
+        <div className='py-10 bg-bg_Secondary_color md:px-3 ' ref={MenuRef}>
             <div className='container'>
                <Flex className='items-center justify-between'>
                 <Flex className={'items-center gap-[10px] '}>
@@ -96,8 +113,8 @@ const  MenuBar = () => {
 
                         <div className='sm:w-[200px] w-full right-0 md:mr-[250px] z-10 mt-8 absolute bg-slate-800 text-center text-white'>
                           <ul className=' divide-y divide-[#ffffff0c]'>
-                            <li className=' py-4 hover:bg-slate-300 hover:text-black'><a href="#">My Account</a></li>
-                            <li className=' py-4 hover:bg-slate-300'><a href="#">Log Out</a></li>
+                            <li className=' py-4 hover:bg-zinc-300 hover:text-black'><a href="#">My Account</a></li>
+                            <li className=' py-4 hover:bg-zinc-300 hover:text-black'><a href="#">Log Out</a></li>
                           </ul>
                         </div>
                         )}
@@ -114,20 +131,27 @@ const  MenuBar = () => {
                           {ShoppingCart && (
 
                           <div  className='w-[360px] h-[260px] absolute mt-[30px] z-10 ml-[-320px] '>
-                            <Flex className={'justify-between items-center bg-bg_Secondary_color py-5 px-5'}>
+                            <Flex className={'justify-between items-center bg-[#767676cc] py-5 px-5'}>
                               <div className='w-[80px] h-[80px]'>
                                 <img src={Arrivals2} alt={Arrivals2} />
                               </div>
                               <div className='-ml-8'>
-                                <p>Black Smart Watch</p>
-                                <span>$44.00</span>
+                                <p className='font-DM_Sans pb-3 text-main_text_color font-bold'>
+                                  Black Smart Watch
+                                </p>
+                                <span className='text-main_text_color font-bold'>
+                                  $44.00
+                                </span>
                               </div>
                               <button  className='flex items-center justify-center w-7 h-7 hover:bg-zinc-400 rounded-full'>
                                   <FaXmark  />
                               </button>
                             </Flex>
-                            <div className='py-5 px-5 bg-[#fff] flex items-start flex-col'>
-                              <p className='pb-4'>Subtotal: $44:00</p>
+                            
+                            <div className='py-5 px-5 bg-[#ffffffe0] flex items-start flex-col'>
+                                <p className='pb-4 font-DM_Sans text-main_text_color'>
+                                  Subtotal: <span className='font-bold'>$44.00</span>
+                                </p>
 
                                 <div className={'flex gap-x-10'}>
                                   <Button
