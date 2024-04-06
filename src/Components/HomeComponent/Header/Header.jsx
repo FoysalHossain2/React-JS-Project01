@@ -4,6 +4,7 @@ import Logo from '../../../assets/Logo.png'
 import Flex from '../../CommonComponents/Flex'
 import { HiBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 
@@ -30,10 +31,10 @@ const Header = () => {
                 ${showMenu ? 'left-0 bg-slate-500 transition-all w-[90%] px-7 top-[60px] z-10' : 'left-[-500px] w-[90%] top-[60px] z-10' }`
               }>
                 <li className='font-normal font-DM_Sans text-sm text-main_text_color'>
-                  <a href="#"> Home </a>
+                <NavLink to={'/'}>Home</NavLink>
                 </li>
                 <li className='font-normal font-DM_Sans text-sm text-main_text_color'>
-                  <a href="#"> Shop </a>
+                  <NavLink to={'/shop'}>Shop</NavLink>
                 </li>
                 <li className='font-normal font-DM_Sans text-sm text-main_text_color'>
                   <a href="#"> About </a>

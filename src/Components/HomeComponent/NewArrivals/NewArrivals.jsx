@@ -110,7 +110,6 @@ function SampleNextArrow(props) {
     
   const NewArrivals = ({headingTitle, ProductData}) => {
     const [AllProduct, setAllProduct] = useState(ProductData)
-    console.log(AllProduct);
 
   return (
     <>
