@@ -19,9 +19,9 @@ const Header = () => {
   return (
     <>
     
-      <div className='py-[31px] bg-bg_Primary_color '>
+      <div className='py-[31px] bg-bg_Primary_color max-[775px]:px-0 px-2'>
          <div className="container">
-         <Flex className='sm:justify-between md:items-center md:px-3'>
+         <Flex className='sm:justify-between md:items-center '>
           <picture>
               <img src={Logo} alt={Logo} title='OREBI logo'  />
             </picture>
@@ -48,7 +48,7 @@ const Header = () => {
             </div>
 
             <div>
-              <div onClick={HandleNav} className='cursor-pointer sm:hidden  mt-[-20px]'>
+              <div onClick={HandleNav} className='cursor-pointer sm:hidden lg:hidden mt-[-20px]'>
                 {showMenu === true ? <RxCross2/>  : <HiBars3/>}
               </div>
             </div>

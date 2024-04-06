@@ -11,11 +11,11 @@ const SaleInfo = () => {
     <> 
       <div className='py-3'>
         <div className="container">
-            <Flex className={'gap-10'}>
-              <div className='w-1/2 relative'>
-                <picture>
-                  <img src={Ad_1} alt="" />
-                </picture>
+            <Flex className={'sm:gap-x-5 md:gap-x-6 lg:gap-x-10 flex-col sm:flex-row gap-y-4'}>
+              <div className='md:w-1/2 w-full relative'>
+                <div className=' w-full h-full'>
+                  <img src={Ad_1} alt=""  className=' w-full h-full'  />
+                </div>
 
                 <Overlay 
                 className={'bottom-[72px] left-16'} 
@@ -28,7 +28,7 @@ const SaleInfo = () => {
                
               </div>
 
-              <div className='w-1/2 flex flex-col gap-10'>
+              <div className='md:w-1/2 w-full flex flex-col gap-10'>
                  <div className='w-full relative'>
                    <picture>
                       <img src={Ad_2} alt="" />

@@ -61,7 +61,7 @@ useEffect(() => {
 
   return (
     <>   
-        <div className='py-10 bg-bg_Secondary_color md:px-3 ' ref={MenuRef}>
+        <div className='md:py-10 py-4 bg-bg_Secondary_color max-[775px]:px-0 px-2 ' ref={MenuRef}>
             <div className='container'>
                <Flex className='items-center justify-between'>
                 <Flex className={'items-center gap-[10px] '}>
@@ -102,7 +102,7 @@ useEffect(() => {
                  </div>
 
                  <div>
-                    <Flex className='gap-4 items-center md:gap-10 mt-[-116px] md:mt-0'> 
+                    <Flex className='gap-4 items-center md:gap-10 mt-[-93px] md:mt-0'> 
                       <div className='flex gap-1 cursor-pointer ' onClick={HandleClick}>
                        <div className='flex items-center justify-center'>
                        <FaUser className={`${singUp ? 'text-orange-300' : null}`} />

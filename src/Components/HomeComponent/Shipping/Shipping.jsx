@@ -15,7 +15,7 @@ const Shipping = () => {
     <> 
         <div className='py-[22px]'>
           <div className="container">
-            <Flex className={'justify-between items-center'}>
+            <Flex className={'md:justify-between items-center grid-rows-2'}>
               {data?.map((item) => (
                 <ShippingItems
                 className={'flex items-center gap-x-3'}

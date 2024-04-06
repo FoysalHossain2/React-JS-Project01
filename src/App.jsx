@@ -6,7 +6,7 @@ import RootLayout from './Components/CommonComponents/RootLayout/RootLayout'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout/>}>
-      <Route path='home' element={<Home/>} />
+      <Route path='/' element={<Home/>} />
     </Route>
   )
 )

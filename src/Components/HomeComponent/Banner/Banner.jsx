@@ -74,18 +74,20 @@ const Banner = () => {
           }
         },
         {
-          breakpoint: 412,
+          breakpoint: 778,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: 1
+            infinite: true,
+            dots: false
           }
         },
         {
-          breakpoint: 375,
+          breakpoint: 640,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            infinite: true,
             dots: false
           }
         }
@@ -96,30 +98,30 @@ const Banner = () => {
   return (
     <>
       <Slider {...settings}>
-      <div >
-        <img src={BannerImg} alt="" />
-      </div>
-      <div>
-        <img src={BannerImg} alt="" />
-      </div>
-      <div>
-        <img src={BannerImg} alt="" />
-      </div>
-      <div>
-        <img src={BannerImg} alt="" />
-      </div>
-      <div>
-        <img src={BannerImg} alt="" />
-      </div>
-      <div>
-        <img src={BannerImg} alt="" />
-      </div>
-      <div>
-        <img src={BannerImg} alt="" />
-      </div>
-      <div>
-        <img src={BannerImg} alt="" />
-      </div>
+        <div >
+          <img src={BannerImg} alt="" />
+        </div>
+        <div>
+          <img src={BannerImg} alt="" />
+        </div>
+        <div>
+          <img src={BannerImg} alt="" />
+        </div>
+        <div>
+          <img src={BannerImg} alt="" />
+        </div>
+        <div>
+          <img src={BannerImg} alt="" />
+        </div>
+        <div>
+          <img src={BannerImg} alt="" />
+        </div>
+        <div>
+          <img src={BannerImg} alt="" />
+        </div>
+        <div>
+          <img src={BannerImg} alt="" />
+        </div>
       </Slider>
     </>
   )
