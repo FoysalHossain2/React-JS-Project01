@@ -12,13 +12,13 @@ const SaleInfo = () => {
       <div className='py-3'>
         <div className="container">
             <Flex className={'sm:gap-x-5 md:gap-x-6 lg:gap-x-10 flex-col sm:flex-row gap-y-4'}>
-              <div className='md:w-1/2 w-full relative'>
+              <div className='md:w-1/2 w-full relative '>
                 <div className=' w-full h-full'>
                   <img src={Ad_1} alt=""  className=' w-full h-full'  />
                 </div>
 
                 <Overlay 
-                className={'bottom-[72px] left-16'} 
+                className={'md:bottom-[72px] bottom-[30px] left-16'} 
                 title={'Phone sale'}
                 discountDetailsFirst={'up to'}
                 discountAmount={'30%'}

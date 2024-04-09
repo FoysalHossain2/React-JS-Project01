@@ -43,7 +43,6 @@ const  MenuBar = () => {
 
 
   // useRef functionality
-console.log(MenuRef.current);
 useEffect(() => {
   window.addEventListener('click',(e) => {
     if (!MenuRef.current.contains(e.target)) {
