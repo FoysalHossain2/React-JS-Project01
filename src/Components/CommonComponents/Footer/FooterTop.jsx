@@ -1,6 +1,5 @@
 import React from 'react';
 import FooterItem from '../FooterItem';
-import Flex from '../../CommonComponents/Flex';
 import Logo from '../../../assets/Logo.png';
 
 
@@ -10,21 +9,27 @@ const FooterTop = () => {
      <div className='mt-44'>
         <div className="container">
 
-            <Flex className={'gap-x-52 pt-14'}>
-                <FooterItem
-                title={'MENU'}
-                allItems={['Home', 'Shop', 'About', 'Contact', 'Journal']}
-                />
+                <div>
+                  
+                </div>
 
+            <div className={'md:gap-x-52 md:flex flex-col gap-x-7 pt-14'}>
+               <div className='flex gap-x-5'>
                 <FooterItem
-                title={'SHOP'}
-                allItems={['Category', 'Category', 'Category', 'Category', 'Category']}
-                />
+                  title={'MENU'}
+                  allItems={['Home', 'Shop', 'About', 'Contact', 'Journal']}
+                  />
 
-                <FooterItem
-                title={'HELP'}
-                allItems={['Privacy Policy', 'Terms & Conditions', 'Special E-shop', 'Shipping', 'Secure Payments']}
-                />
+                  <FooterItem
+                  title={'SHOP'}
+                  allItems={['Category', 'Category', 'Category', 'Category', 'Category']}
+                  />
+
+                  <FooterItem
+                  title={'HELP'}
+                  allItems={['Privacy Policy', 'Terms & Conditions', 'Special E-shop', 'Shipping', 'Secure Payments']}
+                  />
+               </div>
 
                 <div>
                   <div className='font-DM_Sans font-bold text-[16px] text-main_text_color'>
@@ -42,7 +47,7 @@ const FooterTop = () => {
                   <img src={Logo} alt={Logo}  />
                 </div>
 
-            </Flex>
+            </div>
 
         </div>
      </div>

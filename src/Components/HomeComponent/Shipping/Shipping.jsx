@@ -15,14 +15,14 @@ const Shipping = () => {
     <> 
         <div className='py-[22px]'>
           <div className="container">
-            <Flex className={'md:justify-between items-center  md:flex-row flex-col'}>
+            <Flex className={'justify-between items-center '}>
               {data?.map((item, id) => (
                 <ShippingItems
-                className={'flex items-center gap-x-3'}
+                className={'md:flex flex-col justify-center items-center gap-x-3'}
                 key={id}
                 >
-                  <span className='text-xl font-bold'>{item.icon}</span>
-                  <p>{item.title}</p>
+                  <div className='text-xl font-bold'>{item.icon}</div>
+                  <p className={`text-[12px] ${id === 3 ? "text-green-400" : "text-red-400"}`}>{item.title}</p>
                 </ShippingItems>
               ))}
             </Flex>
