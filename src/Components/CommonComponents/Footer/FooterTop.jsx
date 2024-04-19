@@ -6,7 +6,7 @@ import Logo from '../../../assets/Logo.png';
 const FooterTop = () => {
   return (
     <>
-     <div className='mt-44'>
+     <div className='mt-44  px-2 md:px-0'>
         <div className="container">
 
                 <div>

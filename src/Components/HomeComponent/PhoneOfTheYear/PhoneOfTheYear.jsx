@@ -6,7 +6,7 @@ import Button from '../../CommonComponents/Button'
 const PhoneOfTheYear = () => {
   return (
     <>
-     <div className='mt-[130px]'>
+     <div className='mt-[130px] px-2 md:px-0'>
         <div className="container">
            <Flex className={'gap-x-12'}>
                 <div className=' w-[60%]'>

@@ -5,7 +5,7 @@ import Flex from '../../CommonComponents/Flex';
 function FooterBottom() {
   return (
     <>
-     <div className='mt-16'>
+     <div className='mt-16  px-2 md:px-0'>
       <div className="container">
         <Flex className={'justify-between pb-[59px]'}>
         <div className='flex gap-3 text-lg'>

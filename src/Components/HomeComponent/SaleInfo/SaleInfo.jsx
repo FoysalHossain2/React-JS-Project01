@@ -9,7 +9,7 @@ import Overlay from '../../CommonComponents/Overlay'
 const SaleInfo = () => {
   return (
     <> 
-      <div className='py-3'>
+      <div className='py-3 px-2 md:px-0'>
         <div className="container">
             <Flex className={'sm:gap-x-5 md:gap-x-6 lg:gap-x-10 flex-col sm:flex-row gap-y-4'}>
               <div className='md:w-1/2 w-full relative '>

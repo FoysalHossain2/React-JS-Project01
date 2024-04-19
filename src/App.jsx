@@ -7,7 +7,7 @@ import Shop from './Pages/Shop/Shop'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout/>}>
-      <Route path='home' element={<Home/>} />
+      <Route path='' element={<Home/>} />
       <Route path='shop' element={<Shop/>} />
     </Route>
   )
@@ -19,6 +19,7 @@ function App() {
   return (
     <RouterProvider router={router}>
       <Home/>
+      <Shop/>
     </RouterProvider>
   )
 }

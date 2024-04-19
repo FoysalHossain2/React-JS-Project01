@@ -60,7 +60,7 @@ useEffect(() => {
 
   return (
     <>   
-        <div className='md:py-10 py-4 bg-bg_Secondary_color max-[775px]:px-0 px-2 ' ref={MenuRef}>
+        <div className='md:py-10 py-4 bg-bg_Secondary_color px-1 md:px-0' ref={MenuRef}>
             <div className='container'>
                <Flex className='items-center justify-between'>
                 <Flex className={'items-center gap-[10px] '}>

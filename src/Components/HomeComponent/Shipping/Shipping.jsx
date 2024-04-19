@@ -13,7 +13,7 @@ const Shipping = () => {
 
   return (
     <> 
-        <div className='py-[22px]'>
+        <div className='py-[22px] px-2 md:px-0'>
           <div className="container">
             <Flex className={'justify-between items-center '}>
               {data?.map((item, id) => (
