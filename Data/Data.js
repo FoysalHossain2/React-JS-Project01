@@ -106,51 +106,39 @@ export const BestsellersProduct = [
 ];
 
 
-
-
-
-
-// export const SpeacialOffer = [
-//   {
-//     id: 1,
-//     title: "Basic Crew Neck Tee",
-//     price: "$44.00",
-//     bize: true,
-//     color: true,
-//     img: bs1,
-//     bizeItem: true,
-//     discountOffer: "20%",
-//   },
-//   {
-//     id: 2,
-//     title: "Basic Crew Neck Tee",
-//     price: "$54.00",
-//     bize: true,
-//     color: true,
-//     img: bs2,
-//     bizeItem: true,
-//     discountOffer: "20%",
-//   },
-
-//   {
-//     id: 3,
-//     title: "Basic Crew Neck Tee",
-//     price: "$44.00",
-//     bize: true,
-//     color: true,
-//     img: bs3,
-//     bizeItem: true,
-//     discountOffer: "25%",
-//   },
-
-//   {
-//     id: 4,
-//     title: "Basic Crew Neck Tee",
-//     price: "$44.00",
-//     bize: true,
-//     color: false,
-//     img: bs4,
-//     bizeItem: true,
-//     discountOffer: "10%",
-//   },
-// ];
+// shopCatagories
+export const Catagories = [
+  {
+    id: 1, 
+    title: 'Category 1',
+    subCategories: [
+      {id: 1, title: "subCategories 1"},
+      {id: 2, title: "subCategories 1"},
+      {id: 3, title: "subCategories 1"},
+    ]
+  },
+  {
+    id: 2, 
+    title: 'Category 2',
+    subCategories: [],
+  },
+  {
+    id: 3, 
+    title: 'Category 3',
+    subCategories: [
+      {id: 1, title: "subCategories 3"},
+      {id: 2, title: "subCategories 3"},
+      {id: 3, title: "subCategories 3"},
+    ]
+  },
+  {
+    id: 4, 
+    title: 'Category 4',
+    subCategories: [],
+  },
+  {
+    id: 5, 
+    title: 'Category 5',
+    subCategories: [],
+  },
+]

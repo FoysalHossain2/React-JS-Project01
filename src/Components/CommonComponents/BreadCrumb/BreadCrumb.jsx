@@ -6,6 +6,8 @@ const BreadCrumb = () => {
 
   const location = useLocation()
   const BreadCrumbPathname = location.pathname.split('/').filter((x) => x)
+  let BreadCrumbList = "";
+
 
   return (
     <>
@@ -17,12 +19,37 @@ const BreadCrumb = () => {
             <div className='text-[23px]'><MdOutlineKeyboardArrowRight /></div>
             <li> 
               {BreadCrumbPathname.map((path, index) => {
-              const isList = index === BreadCrumbPathname.length - 1;
-
+                const isLogDin = index === BreadCrumbPathname.length - 1;
+                BreadCrumbList += path
+                
                 return (
-                  <Link className={`${isList === true ? 'text-gr-400' : 'text-pink-900'}`} to={'/'}> {path}</Link> 
-                )
-              })}
+                  <li key={path}>
+                  {isLogDin ? (
+                    <Link
+                      className={`${
+                        isLogDin
+                          ? "text-red-400"
+                          : null
+                      }`}
+                    >
+                     
+                      {path}
+                    </Link>
+                  ) : (
+                    <Link
+                      to={`/${BreadCrumbList}`}
+                      className={`${
+                        isLogDin
+                          ? "text-red-400"
+                          : null
+                      }`}
+                    >
+                      {path}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
             </li>
         </ul>
      </div>

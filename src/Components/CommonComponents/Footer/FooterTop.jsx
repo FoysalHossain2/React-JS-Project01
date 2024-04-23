@@ -13,7 +13,7 @@ const FooterTop = () => {
                   
                 </div>
 
-            <div className={'md:gap-x-52 md:flex flex-col gap-x-7 pt-14'}>
+            <div className={'gap-x-52 flex md:flex-col  pt-14'}>
                <div className='flex gap-x-5'>
                 <FooterItem
                   title={'MENU'}

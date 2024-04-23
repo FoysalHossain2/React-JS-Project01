@@ -1,5 +1,7 @@
 import React from 'react'
 import BreadCrump from '../../Components/CommonComponents/BreadCrumb/BreadCrumb'
+import ShopLeft from '../../Components/ShopComponent/ShopLeft'
+import ShopRight from '../../Components/ShopComponent/ShopRight'
 
 const Shop = () => {
   return (
@@ -10,6 +12,12 @@ const Shop = () => {
               Products
             </h1>
             <BreadCrump/>
+
+        <div className='flex py-20'>
+          <ShopLeft className='w-[25%] h-[100vh] ' />
+          <ShopRight className='w-[75%] h-[100vh] bg-pink-300' />
+        </div>
+
         </div>
      </div>
     </>
