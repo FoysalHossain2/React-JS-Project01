@@ -14,8 +14,8 @@ const Shop = () => {
             <BreadCrump/>
 
         <div className='flex py-20'>
-          <ShopLeft className='w-[25%] h-[100vh] ' />
-          <ShopRight className='w-[75%] h-[100vh] bg-pink-300' />
+          <ShopLeft className='w-[25%]  ' />
+          <ShopRight className='w-[75%]  bg-pink-300' />
         </div>
 
         </div>

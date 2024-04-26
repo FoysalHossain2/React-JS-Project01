@@ -106,15 +106,17 @@ export const BestsellersProduct = [
 ];
 
 
+
 // shopCatagories
-export const Catagories = [
+export const CatagoriesData = [
   {
     id: 1, 
-    title: 'Category 1',
+    title: 'Mobil Phone',
     subCategories: [
-      {id: 1, title: "subCategories 1"},
-      {id: 2, title: "subCategories 1"},
-      {id: 3, title: "subCategories 1"},
+      {id: 1, title: "Oppo"},
+      {id: 2, title: "Samsun s23"},
+      {id: 3, title: "Vivo 27"},
+      {id: 4, title: "Tecno"},
     ]
   },
   {
@@ -139,6 +141,41 @@ export const Catagories = [
   {
     id: 5, 
     title: 'Category 5',
-    subCategories: [],
+    subCategories: [
+      {id: 1, title: "subCategories 3"},
+      {id: 2, title: "subCategories 3"},
+      {id: 3, title: "subCategories 3"},
+    ],
   },
+]
+
+
+// Shop by ColorData
+export const ShopColorData = [
+  {id: 1, ColorCode: '#000000', title: 'Black'},
+  {id: 2, ColorCode: '#FF8686', title: 'Pink'},
+  {id: 3, ColorCode: '#7ED321', title: 'Green'},
+  {id: 4, ColorCode: '#B6B6B6', title: 'Gray'},
+  {id: 5, ColorCode: '#15CBA5', title: 'Blue'}
+]
+
+
+// Shop by Brand Data
+export const ShopByBrandData = [
+  { id: 1, title: "Apex" },
+  { id: 2, title: "Apple" },
+  { id: 3, title: "Samsumg" },
+  { id: 4, title: "HP" },
+  { id: 5, title: "Bata" },
+  { id: 5, title: "Bay" },
+]
+
+
+// Shop by Brand Data
+export const ShopByPriceData = [
+  { id: 1, title: "$0.00 - $9.99" },
+  { id: 2, title: "$10.00 - $19.99" },
+  { id: 3, title: "$20.00 - $29.99" },
+  { id: 4, title: "$30.00 - $39.99" },
+  { id: 5, title: "$40.00 - $69.99" },
 ]
