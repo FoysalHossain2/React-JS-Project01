@@ -179,3 +179,15 @@ export const ShopByPriceData = [
   { id: 4, title: "$30.00 - $39.99" },
   { id: 5, title: "$40.00 - $69.99" },
 ]
+
+
+// sort Data
+export const SortData = [
+  { id: 1, sortItem: "Cloth" },
+  { id: 2, sortItem: "Electronics" },
+  { id: 3, sortItem: "Bag" },
+  { id: 4, sortItem: "Cloth" },
+  { id: 5, sortItem: "Woman Cloth" },
+  { id: 6, sortItem: "Man Cloth" },
+  { id: 7, sortItem: "Toy" },
+]
