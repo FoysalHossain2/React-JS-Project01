@@ -3,6 +3,7 @@ import Products from '../Products';
 import Arrivals1 from '../../../assets/NewArrivals/Arrivals1.png'
 import Button from '../Button';
 import axios from 'axios';
+import { FaChevronLeft } from "react-icons/fa";
 
 
 const ShopeRightBottom = () => {
@@ -24,8 +25,11 @@ const ShopeRightBottom = () => {
 
   // HandlePages function
   const HandlePagesNumbers = (pageNumber) => {
-    setPage(pageNumber);
+    if (pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / 9 +1 ) ) {
+      setPage(pageNumber);
+    }
   }
+
 
 
 
@@ -54,14 +58,20 @@ const ShopeRightBottom = () => {
 
         <div className='mt-[50px]'> 
         <div className='flex items-center justify-between'>
-          <div className='flex gap-x-4' >
+          <div className='flex items-center gap-x-4' >
+            <div className='mr-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page - 1)}>
+              <FaChevronLeft />
+            </div>
             {[...new Array(Math.floor(AllProducts.length / 9 +1 ))].map((pageNumber, index) => (
-              <div className={`flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer ${index + 1 === page && 'bg-black text-white'}`}
+              <div key={index} className={`flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer ${index + 1 === page && 'bg-black text-white'}`}
                onClick={ () => HandlePagesNumbers(index + 1)}
                >
                 {index + 1}
               </div>
             ))}
+            <div className='ml-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-12 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page + 1)}>
+              <button>Next</button>
+            </div>
           </div>
 
           <div>
