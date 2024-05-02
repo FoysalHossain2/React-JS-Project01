@@ -18,7 +18,7 @@ const ProductRightTop = () => {
       <Flex className={'gap-x-10'}>    
         <div className='flex items-center gap-x-2 '>
           <h2>Sort by:</h2>
-          <select name="sort" id="sort" className='min-w-[239px] py-2 border-2 border-[#F0F0F0]'>
+          <select name="sort" id="sort" className='min-w-[239px] py-2 border-2 cursor-pointer border-[#F0F0F0]'>
             <option 
             value="Featured"
             className='text-secondary_text_color font-DM_Sans font-normal text-base'
@@ -27,9 +27,9 @@ const ProductRightTop = () => {
             </option>
             {SortProduct?.map((item, id) => (
               <option
-              key={id}
-              value={item.sortItem}
-              className='text-secondary_text_color font-DM_Sans font-normal text-base'
+                key={id}
+                value={item.sortItem}
+                className='text-secondary_text_color font-DM_Sans font-normal text-base'
               >
                 {item.sortItem}
               </option>
@@ -39,7 +39,7 @@ const ProductRightTop = () => {
 
         <div className='flex items-center gap-x-2 '>
           <h2>Show:</h2>
-          <select name="sort" id="sort" className='min-w-[119px] py-2 border-2 border-[#F0F0F0]'>
+          <select name="sort" id="sort" className='min-w-[119px] py-2 border-2 cursor-pointer border-[#F0F0F0]'>
               <option
               value="20"
               className='text-secondary_text_color font-DM_Sans font-normal text-base'

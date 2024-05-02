@@ -129,9 +129,9 @@ function SampleNextArrow(props) {
                     bize={ 
                       item.bize === true ? (
                         <Button 
-                      title={item.bizeItem === true ? 'New' : item.discountOffer}
-                      className={'bg-black text-white py-[9px] px-[33px]'}
-                  /> 
+                        title={item.bizeItem === true ? 'New' : item.discountOffer}
+                        className={'bg-black text-white py-[9px] px-[33px]'}
+                       /> 
                       ): null
                     
                     }
