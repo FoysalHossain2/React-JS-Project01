@@ -121,9 +121,9 @@ function SampleNextArrow(props) {
 
               <Slider {...settings} className='flex justify-between'>
                 
-                {AllProduct ?.map((item) => (
+                {AllProduct ?.map((item, id) => (
 
-                  <Products key={item.id}
+                  <Products key={id}
                     image={item.img}
                     colorVariant={item.color === true ? true : false} 
                     bize={ 

@@ -1,17 +1,17 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import Products from '../Products';
-import Arrivals1 from '../../../assets/NewArrivals/Arrivals1.png'
 import Button from '../Button';
 import axios from 'axios';
 import { FaChevronLeft } from "react-icons/fa";
+import { ShopPageChangeContext } from '../../ShopComponent/ShopRight';
 
 
 const ShopeRightBottom = () => {
 
+  const value = useContext(ShopPageChangeContext)
   const [AllProducts, setAllProducts] = useState([]);
-
   const [page , setPage] = useState(1);
- 
+
 
   useEffect(() => {
     const productDataFetch = async () => {
@@ -25,7 +25,7 @@ const ShopeRightBottom = () => {
 
   // HandlePages function
   const HandlePagesNumbers = (pageNumber) => {
-    if (pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / 9 +1 ) ) {
+    if (pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / value + 1 ) ) {
       setPage(pageNumber);
     }
   }
@@ -37,7 +37,7 @@ const ShopeRightBottom = () => {
     <>
       <div className='mt-14 '>
         <div className={'flex flex-wrap justify-between gap-y-5'}>          
-            {AllProducts?.slice(page * 9 - 9, page * 9).map((ProductsItem, id) => (
+            {AllProducts?.slice(page * value - value, page * value).map((ProductsItem, id) => (
               <div className={'w-[32%] '} key={id}>
                 <Products 
                   image={ProductsItem.thumbnail} 
@@ -62,7 +62,7 @@ const ShopeRightBottom = () => {
             <div className='mr-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page - 1)}>
               <FaChevronLeft />
             </div>
-            {[...new Array(Math.floor(AllProducts.length / 9 +1 ))].map((pageNumber, index) => (
+            {[...new Array(Math.floor(AllProducts.length / value +1 ))].map((pageNumber, index) => (
               <div key={index} className={`flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer ${index + 1 === page && 'bg-black text-white'}`}
                onClick={ () => HandlePagesNumbers(index + 1)}
                >
@@ -75,8 +75,8 @@ const ShopeRightBottom = () => {
           </div>
 
           <div>
-            <p>{`Products from ${page * 9 - 9} to 
-              ${page === 4 ? AllProducts.length : page * 9} of 
+            <p>{`Products from ${page * value - value} to 
+              ${page === 4 ? AllProducts.length : page * value} of 
               ${AllProducts.length}`}</p>
           </div>
         </div>

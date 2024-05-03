@@ -1,11 +1,13 @@
-import React,{useState} from 'react'
+import React,{useState, createContext} from 'react'
 import { IoGrid } from "react-icons/io5";
 import Flex from '../../CommonComponents/Flex';
 import { SortData } from '../../../../Data/Data';
 
-const ProductRightTop = () => {
+const ProductRightTop = ({onchangePage}) => {
 
   const [SortProduct, setSortProduct] = useState(SortData)
+  
+
 
 
   return (
@@ -39,24 +41,24 @@ const ProductRightTop = () => {
 
         <div className='flex items-center gap-x-2 '>
           <h2>Show:</h2>
-          <select name="sort" id="sort" className='min-w-[119px] py-2 border-2 cursor-pointer border-[#F0F0F0]'>
+          <select name="sort" id="sort" className='min-w-[119px] py-2 border-2 cursor-pointer border-[#F0F0F0]' onChange={onchangePage}>
               <option
-              value="20"
+              value="9"
               className='text-secondary_text_color font-DM_Sans font-normal text-base'
               >
-                20
+                9
               </option>
               <option
-              value="20"
+              value="18"
               className='text-secondary_text_color font-DM_Sans font-normal text-base'
               >
-                20
+                18
               </option>
               <option
-              value="20"
+              value="27"
               className='text-secondary_text_color font-DM_Sans font-normal text-base'
               >
-                20
+                27
               </option>
             
           </select>
