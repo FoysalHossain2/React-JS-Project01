@@ -4,19 +4,30 @@ import Button from '../Button';
 import axios from 'axios';
 import { FaChevronLeft } from "react-icons/fa";
 import { ShopPageChangeContext } from '../../ShopComponent/ShopRight';
+import { useSelector, useDispatch } from 'react-redux'
+import { SetProducts } from '../../../Redux/AllSlice/ProduceSlice/ProductSlice';
+
 
 
 const ShopeRightBottom = () => {
+
+  const dispatch = useDispatch();
 
   const value = useContext(ShopPageChangeContext)
   const [AllProducts, setAllProducts] = useState([]);
   const [page , setPage] = useState(1);
 
+  // useEffect(() => {
+  //   dispatch(FetcherProduct())
+  // }, [])
+  
 
   useEffect(() => {
     const productDataFetch = async () => {
       const products = await axios.get("https://dummyjson.com/products")
       setAllProducts(products.data.products);
+      // set data on redux
+      dispatch(SetProducts(products.data.products))
     }
 
     productDataFetch()
@@ -30,6 +41,8 @@ const ShopeRightBottom = () => {
     }
   }
 
+
+  useSelector((state) => console.log(state))
 
 
 
