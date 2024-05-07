@@ -1,24 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const ApiStatus = {
+  IDLE: "IDLE",
+  LOADING: "LOADING",
+  ERROR: 'error'
+}
+
 const initialState = {
   data: [],
+  status: ApiStatus.IDLE,
 };
 
 export const productSlice = createSlice({
   name: "productSlice",
   initialState,
   reducers: {
-    SetProducts: (state, payload) => {
-      state.data = payload;
+    SetProducts: (state, action) => {
+      state.data = action.payload;
     },
+    SetStatus: (state, action) => {
+      state.status = action.payload
+    }
   },
 });
 
 
 // make a thunk function for getting data 
+export const FetchDataProduct = () => {
+  return async function GetProduct(dispatch, getState) {
+    try {
+      dispatch(SetStatus(ApiStatus.LOADING))
+      const response = await fetch("https://dummyjson.com/products");
+      const data = await response.json();
+        dispatch(SetProducts(data.products));
+      dispatch(SetStatus(ApiStatus.IDLE));
+    } catch (error) {
+      console.log(error);
+      dispatch(SetStatus(ApiStatus.ERROR));
+    }
+  }
+}
 
 
 
-
-export const { SetProducts } = productSlice.actions;
+export const { SetProducts, SetStatus } = productSlice.actions;
 export default productSlice.reducer;
