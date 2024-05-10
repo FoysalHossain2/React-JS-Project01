@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const ApiStatus = {
   IDLE: "IDLE",
   LOADING: "LOADING",
-  ERROR: 'error'
+  ERROR: 'ERROR'
 }
 
 const initialState = {
@@ -33,7 +33,7 @@ export const FetchDataProduct = () => {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
         dispatch(SetProducts(data.products));
-      dispatch(SetStatus(ApiStatus.IDLE));
+        dispatch(SetStatus(ApiStatus.IDLE));
     } catch (error) {
       console.log(error);
       dispatch(SetStatus(ApiStatus.ERROR));

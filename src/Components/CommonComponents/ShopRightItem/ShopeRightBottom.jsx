@@ -13,7 +13,7 @@ const ShopeRightBottom = () => {
 
   const dispatch = useDispatch();
 
-  const value = useContext(ShopPageChangeContext)
+  const {PageChange , GrideLayout} = useContext(ShopPageChangeContext)
   const [AllProducts, setAllProducts] = useState([]);
   const [page , setPage] = useState(1);
 
@@ -43,7 +43,7 @@ const ShopeRightBottom = () => {
 
   // HandlePages function
   const HandlePagesNumbers = (pageNumber) => {
-    if (pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / value + 1 ) ) {
+    if (pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / PageChange + 1 ) ) {
       setPage(pageNumber);
     }
   }
@@ -59,7 +59,7 @@ const ShopeRightBottom = () => {
     <>
       <div className='mt-14 '>
         <h1>{status}</h1>
-        {status === "LOADING" && (
+        {status === "LOADING" ? (
             <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
             <div class="animate-pulse flex space-x-4">
               <div class="rounded-full bg-slate-200 h-10 w-10"></div>
@@ -75,57 +75,53 @@ const ShopeRightBottom = () => {
               </div>
             </div>
           </div>
-        )}
-        {AllProducts && (
-          <div>
+        ) : status === "ERROR" ? (
+          <h1>E</h1>
+        ) : (
+           AllProducts && (
+        <div>
 
-            <div className={'flex flex-wrap justify-between gap-y-5'}>          
-                {AllProducts?.slice(page * value - value, page * value).map((ProductsItem, id) => (
-                  <div className={'w-[32%] '} key={id}>
-                    <Products 
-                      image={ProductsItem.thumbnail} 
-                      colorVariant={true}
-                      ProductName={ProductsItem.title}
-                      ProductPrice={ProductsItem.price}
-
-                      bize={ 
-                          <Button 
-                          title={ProductsItem.discountPercentage ? ProductsItem.discountPercentage :'New'}
-                          className={'bg-black text-[16px] text-white py-[3px] px-[30px]'}
-                        /> 
-                      }
-                      />
-                  </div>
-                  ))}
-            </div>
-
-            <div className='mt-[50px]'> 
-            <div className='flex items-center justify-between'>
-              <div className='flex items-center gap-x-4' >
-                <div className='mr-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page - 1)}>
-                  <FaChevronLeft />
+          <div className={`flex flex-wrap justify-between  ${GrideLayout ? 'flex-col' : null}`}>          
+              {AllProducts?.slice(page * PageChange - PageChange, page * PageChange).map((ProductsItem, id) => (
+                <div className={`w-[32%] `} key={id}>
+                  <Products
+                    image={ProductsItem.thumbnail}
+                    ProductName={ProductsItem.title}
+                    ProductPrice={ProductsItem.price}
+                    colorVariant={true}
+                  />
                 </div>
-                {[...new Array(Math.floor(AllProducts.length / value +1 ))].map((pageNumber, index) => (
-                  <div key={index} className={`flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer ${index + 1 === page && 'bg-black text-white'}`}
-                  onClick={ () => HandlePagesNumbers(index + 1)}
-                  >
-                    {index + 1}
-                  </div>
                 ))}
-                <div className='ml-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-12 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page + 1)}>
-                  <button>Next</button>
-                </div>
-              </div>
+          </div>
 
-              <div>
-                <p>{`Products from ${page * value - value} to 
-                  ${page === 4 ? AllProducts.length : page * value} of 
-                  ${AllProducts.length}`}</p>
+          <div className='mt-[50px]'> 
+          <div className='flex items-center justify-between'>
+            <div className='flex items-center gap-x-4' >
+              <div className='mr-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page - 1)}>
+                <FaChevronLeft />
+              </div>
+              {[...new Array(Math.floor(AllProducts.length / PageChange +1 ))].map((pageNumber, index) => (
+                <div key={index} className={`flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer ${index + 1 === page && 'bg-black text-white'}`}
+                onClick={ () => HandlePagesNumbers(index + 1)}
+                >
+                  {index + 1}
+                </div>
+              ))}
+              <div className='ml-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-12 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page + 1)}>
+                <button>Next</button>
               </div>
             </div>
+
+            <div>
+              <p>{`Products from ${page * PageChange - PageChange} to 
+                ${page === 4 ? AllProducts.length : page * PageChange} of 
+                ${AllProducts.length}`}</p>
             </div>
           </div>
-        )}
+          </div>
+        </div>
+      ))
+    }
     </div>
     </>
   )

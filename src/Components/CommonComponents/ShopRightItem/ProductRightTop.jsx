@@ -1,9 +1,10 @@
 import React,{useState, createContext} from 'react'
-import { IoGrid } from "react-icons/io5";
+import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { FaBars } from "react-icons/fa";
 import Flex from '../../CommonComponents/Flex';
 import { SortData } from '../../../../Data/Data';
 
-const ProductRightTop = ({onchangePage}) => {
+const ProductRightTop = ({onchangePage, GrideLayoutChange, changeIcon}) => {
 
   const [SortProduct, setSortProduct] = useState(SortData)
   
@@ -13,8 +14,9 @@ const ProductRightTop = ({onchangePage}) => {
   return (
     <>
     <Flex className={'items-center justify-between'}>
-      <div className='cursor-pointer'>
-        <IoGrid className='text-2xl' />
+      <div className='cursor-pointer' onClick={GrideLayoutChange}>
+        {changeIcon ? (<FaBars className='text-2xl' />) : (<BsFillGrid3X3GapFill className='text-2xl' />)}
+        
       </div>
 
       <Flex className={'gap-x-10'}>    

@@ -9,12 +9,12 @@ const FooterTop = () => {
      <div className='mt-44  px-2 md:px-0'>
         <div className="container">
 
-                <div>
-                  
-                </div>
+            <div>
+              
+            </div>
 
-            <div className={'gap-x-52 md:flex-row flex-col  pt-14'}>
-               <div className='flex gap-x-5'>
+            <div className={'sm:flex flex-col md:flex-row  gap-x-52  pt-14'}>
+               <div className='sm:flex flex-col md:flex-row gap-x-52'>
                 <FooterItem
                   title={'MENU'}
                   allItems={['Home', 'Shop', 'About', 'Contact', 'Journal']}
