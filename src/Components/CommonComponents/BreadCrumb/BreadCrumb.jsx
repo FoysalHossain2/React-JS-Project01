@@ -11,8 +11,8 @@ const BreadCrumb = () => {
 
   return (
     <>
-     <div>
-        <ul className='flex items-center text-center gap-1'>
+     <div className='md:block hidden '>
+        <ul className=' flex items-center text-center gap-1'>
             <li> 
               <Link to={'/'}>Home</Link> 
             </li>

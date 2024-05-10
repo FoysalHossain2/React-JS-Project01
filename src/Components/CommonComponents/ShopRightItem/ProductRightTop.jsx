@@ -13,7 +13,7 @@ const ProductRightTop = ({onchangePage, GrideLayoutChange, changeIcon}) => {
 
   return (
     <>
-    <Flex className={'items-center justify-between'}>
+    <Flex className={'items-center justify-between  px-1 md:px-0'}>
       <div className='cursor-pointer' onClick={GrideLayoutChange}>
         {changeIcon ? (<FaBars className='text-2xl' />) : (<BsFillGrid3X3GapFill className='text-2xl' />)}
         

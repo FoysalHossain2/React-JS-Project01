@@ -14,7 +14,7 @@ const FooterTop = () => {
             </div>
 
             <div className={'sm:flex flex-col md:flex-row  gap-x-52  pt-14'}>
-               <div className='sm:flex flex-col md:flex-row gap-x-52'>
+               <div className='flex gap-x-8  md:gap-x-52'>
                 <FooterItem
                   title={'MENU'}
                   allItems={['Home', 'Shop', 'About', 'Contact', 'Journal']}

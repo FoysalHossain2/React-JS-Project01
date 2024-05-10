@@ -35,8 +35,6 @@ const ShopeRightBottom = () => {
   }, [data, status])  
 
 
-  console.log(AllProducts);
-
 
 
 
@@ -57,7 +55,7 @@ const ShopeRightBottom = () => {
 
   return (
     <>
-      <div className='mt-14 '>
+      <div className='mt-14 px-1 md:px-0'>
         <h1>{status}</h1>
         {status === "LOADING" ? (
             <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
