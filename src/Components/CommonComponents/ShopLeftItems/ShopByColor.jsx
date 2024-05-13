@@ -17,7 +17,7 @@ const ShopByColor = ({shopLeftColorTitle, ShopColorData, color}) => {
   return (
     <>
     <div className='mr-6'>  
-        <div className=' pt-6 pb-6 flex items-center justify-between cursor-pointer' onClick={HandleCollapse}>
+        <div className='mt-5 pt-6 pb-6 flex items-center justify-between cursor-pointer' onClick={HandleCollapse}>
             <h3 className=' font-DM_Sans font-bold text-xl '>{shopLeftColorTitle ? shopLeftColorTitle : "Title is messing"}</h3>
            <div className='text-[20px]'>
               {ShopColorShow ? <FaCaretUp /> : <FaCaretDown />}  

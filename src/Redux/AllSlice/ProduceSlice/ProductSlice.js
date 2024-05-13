@@ -7,7 +7,7 @@ const ApiStatus = {
 }
 
 const initialState = {
-  data: [],
+  data: {},
   status: ApiStatus.IDLE,
 };
 
@@ -26,13 +26,13 @@ export const productSlice = createSlice({
 
 
 // make a thunk function for getting data 
-export const FetchDataProduct = () => {
+export const FetchDataProduct = (ApiUrl) => {
   return async function GetProduct(dispatch, getState) {
     try {
       dispatch(SetStatus(ApiStatus.LOADING))
-      const response = await fetch("https://dummyjson.com/products");
+      const response = await fetch(ApiUrl);
       const data = await response.json();
-        dispatch(SetProducts(data.products));
+        dispatch(SetProducts(data));
         dispatch(SetStatus(ApiStatus.IDLE));
     } catch (error) {
       console.log(error);

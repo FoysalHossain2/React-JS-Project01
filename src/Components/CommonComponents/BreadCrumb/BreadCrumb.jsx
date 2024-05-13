@@ -17,34 +17,22 @@ const BreadCrumb = () => {
               <Link to={'/'}>Home</Link> 
             </li>
             <div className='text-[23px]'><MdOutlineKeyboardArrowRight /></div>
-            <li> 
+            <li className='flex items-center justify-center'> 
               {BreadCrumbPathname.map((path, index) => {
+                console.log(path);
                 const isLogDin = index === BreadCrumbPathname.length - 1;
                 BreadCrumbList += path
+                console.log(path);
                 
                 return (
                   <li key={path}>
                   {isLogDin ? (
-                    <Link
-                      className={`${
-                        isLogDin
-                          ? "text-red-400"
-                          : null
-                      }`}
-                    >
-                     
-                      {path}
+                    <Link className={`${isLogDin ? "text-red-400" : "text-red-400" }`} >                    
+                      <h1>{ path} </h1>
                     </Link>
                   ) : (
-                    <Link
-                      to={`/${BreadCrumbList}`}
-                      className={`${
-                        isLogDin
-                          ? "text-red-400"
-                          : null
-                      }`}
-                    >
-                      {path}
+                    <Link  to={`/${BreadCrumbList}`} className={`${ isLogDin? "text-red-400" : "text-red-400"  }`} >
+                      <h1>{ path}</h1>
                     </Link>
                   )}
                 </li>
