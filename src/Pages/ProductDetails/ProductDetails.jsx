@@ -58,8 +58,8 @@ const ProductDetails = () => {
             <h2  className='font-bold text-[39px] pb-3'>{EachProduct.title ? EachProduct.title : "Product"}</h2>
             <RatingStar ratingStar={EachProduct.rating} />
             <div className='flex items-center gap-x-4 mt-3'>
-              <h3 className='line-through'>${(EachProduct.price)}.00</h3>
-              ${EachProduct.discountPercentage}
+              <p className='line-through'>${(EachProduct.price)}.00</p>
+              <p>${EachProduct.price - Math.round((EachProduct.price * EachProduct.discountPercentage / 100))}.00</p>
             </div>
           </div>
       </div>
