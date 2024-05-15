@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FetchDataProduct } from '../../Redux/AllSlice/ProduceSlice/ProductSlice';
 import ProductDetailsTop from '../../Components/ProductDetailesComponent/ProductDetailsTop';
 import ErrorPage from '../../Components/CommonComponents/ErrorPage';
+import Loading from '../../Components/CommonComponents/Loading';
+import RatingStar from '../../Components/ProductDetailesComponent/RatingStar';
 
 const ProductDetails = () => {
 
@@ -23,32 +25,21 @@ const ProductDetails = () => {
     }
   }, [data, status])
 
-
+  console.log(EachProduct);  
+  console.log((EachProduct.price  * EachProduct.discountPercentage ) / 10);
+  
+  
 
   return (
     <>
     <div >
       <div className='container'>
-        <div>
+        <div className='mt-5'>
           <BreadCrumb/>
         </div>
 
         {status === "LOADING" ? (
-          <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-          <div class="animate-pulse flex space-x-4">
-            <div class="rounded-full bg-slate-200 h-10 w-10"></div>
-            <div class="flex-1 space-y-6 py-1">
-              <div class="h-2 bg-slate-200 rounded"></div>
-              <div class="space-y-3">
-                <div class="grid grid-cols-3 gap-4">
-                  <div class="h-2 bg-slate-200 rounded col-span-2"></div>
-                  <div class="h-2 bg-slate-200 rounded col-span-1"></div>
-                </div>
-                <div class="h-2 bg-slate-200 rounded"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Loading />
         )
         : status === "ERROR" ? (
           <div>
@@ -62,6 +53,15 @@ const ProductDetails = () => {
         )
 
         }
+
+          <div className='mt-[45px]'>
+            <h2  className='font-bold text-[39px] pb-3'>{EachProduct.title ? EachProduct.title : "Product"}</h2>
+            <RatingStar ratingStar={EachProduct.rating} />
+            <div className='flex items-center gap-x-4 mt-3'>
+              <h3 className='line-through'>${(EachProduct.price)}.00</h3>
+              ${EachProduct.discountPercentage}
+            </div>
+          </div>
       </div>
     </div>
     </>

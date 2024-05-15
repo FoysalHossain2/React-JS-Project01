@@ -4,15 +4,15 @@ const ProductDetailsTop = ({EachProductImg}) => {
   return (
     <>
      <div>
-        <div className=' gap-5 mt-5 flex flex-wrap items-center justify-center'>
+        <div className=' gap-5 mt-5 flex flex-wrap items-center justify-between'>
             {EachProductImg.images?.map((img) => (
                 <div className=' object-cover bottom-1' key={img}>
-                    <picture>
-                    <img
-                    src={img}
-                    alt={img} 
-                    className='w-[550px]  h-[400px]' />
-                    </picture>
+                    <div className='border-2 border-main_text_color'>              
+                      <img
+                      src={img}
+                      alt={img} 
+                      className='border-2 border-main_text_color w-[700px]  h-[550px]' />                  
+                    </div>
                 </div>
             ))}
         </div>
