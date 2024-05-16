@@ -7,7 +7,7 @@ const ShopLeft = ({className}) => {
 
   return (
     <>
-      <div className={className}>
+      <div className={`${className} hidden md:block`}>
         <ShopCatagories CatagoriesData={CatagoriesData ? CatagoriesData : []}
           shopLeftTitle={'Shop by Category'} 
          />

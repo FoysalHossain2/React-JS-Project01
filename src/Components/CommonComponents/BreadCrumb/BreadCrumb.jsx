@@ -6,6 +6,7 @@ const BreadCrumb = () => {
 
   const location = useLocation()
   const BreadCrumbPathname = location.pathname.split('/').filter((x) => x)
+  console.log(BreadCrumbPathname);
   let BreadCrumbList = "";
 
 

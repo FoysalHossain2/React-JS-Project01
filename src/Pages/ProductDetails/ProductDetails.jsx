@@ -11,6 +11,7 @@ const ProductDetails = () => {
 
   const dispatch = useDispatch();
   const [EachProduct, setEachProduct] = useState({})
+  console.log(EachProduct);
 
   useEffect(() => {
     dispatch(FetchDataProduct("https://dummyjson.com/products/2"))
@@ -26,7 +27,7 @@ const ProductDetails = () => {
   }, [data, status])
 
   console.log(EachProduct);  
-  console.log((EachProduct.price  * EachProduct.discountPercentage ) / 10);
+  console.log((EachProduct.price * EachProduct.discountPercentage ) / 10);
   
   
 
@@ -54,13 +55,18 @@ const ProductDetails = () => {
 
         }
 
+        {/* Product bottom part */}
+        <div>
+        </div>
           <div className='mt-[45px]'>
             <h2  className='font-bold text-[39px] pb-3'>{EachProduct.title ? EachProduct.title : "Product"}</h2>
             <RatingStar ratingStar={EachProduct.rating} />
-            <div className='flex items-center gap-x-4 mt-3'>
-              <p className='line-through'>${(EachProduct.price)}.00</p>
+            <div className=' mt-3'>
               <p>${EachProduct.price - Math.round((EachProduct.price * EachProduct.discountPercentage / 100))}.00</p>
+              <p className='line-through'>${(EachProduct.price)}.00</p>
             </div>
+
+            <div>Color</div>
           </div>
       </div>
     </div>
