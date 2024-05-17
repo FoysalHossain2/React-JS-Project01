@@ -37,7 +37,7 @@ const ShopeRightBottom = () => {
 
 
 
-  // HandlePages function
+  // Handle pagination  function
   const HandlePagesNumbers = (pageNumber) => {
     if (pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / PageChange + 1 ) ) {
       setPage(pageNumber);
@@ -66,47 +66,53 @@ const ShopeRightBottom = () => {
            AllProducts && (
         <div>
 
-          <div className={`flex flex-wrap gap-y-5 justify-between  ${GrideLayout ? 'flex-col' : null}`}>          
-              {AllProducts?.slice(page * PageChange - PageChange, page * PageChange).map((ProductsItem, id) => (
-                <div className={`w-[32%] `} key={ProductsItem.id}>
+          <div className='flex'>
+              <div className={`flex flex-wrap gap-y-5 justify-between  ${GrideLayout ? 'flex-col' : null}`}>          
+                  {AllProducts?.slice(page * PageChange - PageChange, page * PageChange).map((ProductsItem, id) => (
+                    <div className={`w-[32%] `} key={ProductsItem.id}>
 
-                  <Link to={`/productDetails/${ProductsItem.id}`} >
-                    <Products
-                      image={ProductsItem.thumbnail}
-                      ProductName={ProductsItem.title}
-                      ProductPrice={ProductsItem.price}
-                      colorVariant={true}
-                    />
-                  </Link>
-                </div>
-                ))}
+                      <Link to={`/productDetails/${ProductsItem.id}`} >
+                        <Products
+                           image={ProductsItem.thumbnail}
+                           ProductName={ProductsItem.title}
+                           ProductPrice={ProductsItem.price}
+                           colorVariant={true}
+
+                           GrideLayout={GrideLayout}
+                        />
+                      </Link>
+                    </div>
+                    ))}
+              </div>
           </div>
 
+          {/* pagination part */}
           <div className='mt-[50px]'> 
-          <div className='flex items-center justify-between'>
-            <div className='flex items-center gap-x-4' >
-              <div className='mr-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page - 1)}>
-                <FaChevronLeft />
-              </div>
-              {[...new Array(Math.floor(AllProducts.length / PageChange +1 ))].map((pageNumber, index) => (
-                <div key={index} className={`flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer ${index + 1 === page && 'bg-black text-white'}`}
-                onClick={ () => HandlePagesNumbers(index + 1)}
-                >
-                  {index + 1}
+            <div className='flex items-center justify-between'>
+              <div className='flex items-center gap-x-4' >
+                <div className='mr-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page - 1)}>
+                  <FaChevronLeft />
                 </div>
-              ))}
-              <div className='ml-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-12 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page + 1)}>
-                <button>Next</button>
+                {[...new Array(Math.floor(AllProducts.length / PageChange +1 ))].map((pageNumber, index) => (
+                  <div key={index} className={`flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-9 h-9 cursor-pointer ${index + 1 === page && 'bg-black text-white'}`}
+                  onClick={ () => HandlePagesNumbers(index + 1)}
+                  >
+                    {index + 1}
+                  </div>
+                ))}
+                <div className='ml-8 flex items-center justify-center border-2 border-[#F0F0F0] text-[#767676] w-12 h-9 cursor-pointer' onClick={() => HandlePagesNumbers(page + 1)}>
+                  <button>Next</button>
+                </div>
+              </div>
+
+              <div>
+                <p>{`Products from ${page * PageChange - PageChange} to 
+                  ${page === 4 ? AllProducts.length : page * PageChange} of 
+                  ${AllProducts.length}`}</p>
               </div>
             </div>
-
-            <div>
-              <p>{`Products from ${page * PageChange - PageChange} to 
-                ${page === 4 ? AllProducts.length : page * PageChange} of 
-                ${AllProducts.length}`}</p>
-            </div>
           </div>
-          </div>
+          {/* pagination part */}
         </div>
       ))
     }

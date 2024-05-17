@@ -5,7 +5,8 @@ import { IoCart } from "react-icons/io5";
 import { DiGitCompare } from "react-icons/di";
 
 
-const Products = ({colorVariant, bize, image, ProductPrice, ProductName, className}) => {
+const Products = ({colorVariant, bize, image, ProductPrice, ProductName, className, GrideLayout}) => {
+  console.log(GrideLayout );
 
 
   return (
@@ -56,6 +57,8 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
                 {colorVariant && <span>Black</span>} 
 
           {/* </div> */}
+
+
       </div>
     </>
   )

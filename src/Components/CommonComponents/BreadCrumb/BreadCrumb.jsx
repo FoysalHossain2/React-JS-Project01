@@ -6,7 +6,6 @@ const BreadCrumb = () => {
 
   const location = useLocation()
   const BreadCrumbPathname = location.pathname.split('/').filter((x) => x)
-  console.log(BreadCrumbPathname);
   let BreadCrumbList = "";
 
 
@@ -17,23 +16,22 @@ const BreadCrumb = () => {
             <li> 
               <Link to={'/'}>Home</Link> 
             </li>
-            <div className='text-[23px]'><MdOutlineKeyboardArrowRight /></div>
+            
+            {/* <div className='text-[23px] text-black'><MdOutlineKeyboardArrowRight /></div>  */}
             <li className='flex items-center justify-center'> 
               {BreadCrumbPathname.map((path, index) => {
-                console.log(path);
                 const isLogDin = index === BreadCrumbPathname.length - 1;
-                BreadCrumbList += path
-                console.log(path);
+                BreadCrumbList += `/${path}`
                 
                 return (
                   <li key={path}>
                   {isLogDin ? (
-                    <Link className={`${isLogDin ? "text-red-400" : "text-red-400" }`} >                    
-                      <h1>{ path} </h1>
+                    <Link   className={`${isLogDin ? "text-red-400" : "text-red-400" }`} >                    
+                    <h1><span className='text-black ml-2 mr-1'>/</span> { path} </h1>
                     </Link>
                   ) : (
-                    <Link  to={`/${BreadCrumbList}`} className={`${ isLogDin? "text-red-400" : "text-red-400"  }`} >
-                      <h1>{ path}</h1>
+                    <Link   className={`${ isLogDin? "text-red-400" : "text-red-400"  }`} >
+                      <h1><span className='text-black ml-2 mr-1'>/</span> { path}</h1>
                     </Link>
                   )}
                 </li>
