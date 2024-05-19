@@ -1,7 +1,6 @@
 import React,{useState, useEffect, useContext} from 'react'
-import Products from '../Products';
+import Products2 from '../../CommonComponents/ShopRightItem/Products2';
 import Button from '../Button';
-import axios from 'axios';
 import { FaChevronLeft } from "react-icons/fa";
 import { ShopPageChangeContext } from '../../ShopComponent/ShopRight';
 import { useSelector, useDispatch } from 'react-redux'
@@ -66,19 +65,18 @@ const ShopeRightBottom = () => {
            AllProducts && (
         <div>
 
-          <div className='flex'>
-              <div className={`flex flex-wrap gap-y-5 justify-between  ${GrideLayout ? 'flex-col' : null}`}>          
+          <div className={``}>
+              <div className={`flex flex-wrap gap-y-5 justify-between ${GrideLayout ? 'flex flex-col' : ''} `}>          
                   {AllProducts?.slice(page * PageChange - PageChange, page * PageChange).map((ProductsItem, id) => (
-                    <div className={`w-[32%] `} key={ProductsItem.id}>
+                    <div className={`w-[32%]`} key={ProductsItem.id}>
 
                       <Link to={`/productDetails/${ProductsItem.id}`} >
-                        <Products
-                           image={ProductsItem.thumbnail}
-                           ProductName={ProductsItem.title}
-                           ProductPrice={ProductsItem.price}
-                           colorVariant={true}
-
-                           GrideLayout={GrideLayout}
+                        <Products2
+                          image={ProductsItem.thumbnail}
+                          ProductName={ProductsItem.title}
+                          ProductPrice={ProductsItem.price}
+                          colorVariant={true}
+                          GrideLayout={GrideLayout}
                         />
                       </Link>
                     </div>

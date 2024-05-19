@@ -6,6 +6,7 @@ import ProductDetailsTop from '../../Components/ProductDetailesComponent/Product
 import ErrorPage from '../../Components/CommonComponents/ErrorPage';
 import Loading from '../../Components/CommonComponents/Loading';
 import RatingStar from '../../Components/ProductDetailesComponent/RatingStar';
+import ProductInfo from '../../Components/ProductDetailesComponent/ProductInfo';
 
 const ProductDetails = () => {
 
@@ -61,12 +62,14 @@ const ProductDetails = () => {
           <div className='mt-[45px]'>
             <h2  className='font-bold text-[39px] pb-3'>{EachProduct.title ? EachProduct.title : "Product"}</h2>
             <RatingStar ratingStar={EachProduct.rating} />
-            <div className=' mt-3'>
+            <div className='flex gap-x-4 mt-3'>
               <p>${EachProduct.price - Math.round((EachProduct.price * EachProduct.discountPercentage / 100))}.00</p>
               <p className='line-through'>${(EachProduct.price)}.00</p>
             </div>
 
-            <div>Color</div>
+            <div>
+              <ProductInfo/>
+            </div>
           </div>
       </div>
     </div>

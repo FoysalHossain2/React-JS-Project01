@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, Link} from 'react'
 import Products from '../../CommonComponents/Products'
 import Button from '../../CommonComponents/Button';
 import Slider from "react-slick";
@@ -119,8 +119,8 @@ function SampleNextArrow(props) {
                  {headingTitle ?  headingTitle : "Title is Missing"}
               </h2>
 
+
               <Slider {...settings} className='flex justify-between'>
-                
                 {AllProduct ?.map((item, id) => (
 
                   <Products key={id}
@@ -138,6 +138,7 @@ function SampleNextArrow(props) {
                   />
                   ))}
               </Slider>
+
         </div>
       </div>
     </>
