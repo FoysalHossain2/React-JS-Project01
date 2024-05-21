@@ -30,6 +30,7 @@ const ProductDetails = () => {
   console.log(EachProduct);  
   console.log((EachProduct.price * EachProduct.discountPercentage ) / 10);
   
+
   
 
   return (
@@ -63,12 +64,14 @@ const ProductDetails = () => {
             <h2  className='font-bold text-[39px] pb-3'>{EachProduct.title ? EachProduct.title : "Product"}</h2>
             <RatingStar ratingStar={EachProduct.rating} />
             <div className='flex gap-x-4 mt-3'>
-              <p>${EachProduct.price - Math.round((EachProduct.price * EachProduct.discountPercentage / 100))}.00</p>
               <p className='line-through'>${(EachProduct.price)}.00</p>
+              <p className='font-bold text-[20px] font-DM_Sans text-main_text_color'>
+                ${EachProduct.price - Math.round((EachProduct.price * EachProduct.discountPercentage / 100))}.00
+              </p>
             </div>
 
             <div>
-              <ProductInfo/>
+              <ProductInfo ProductStock={EachProduct.stock} />
             </div>
           </div>
       </div>

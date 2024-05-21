@@ -44,6 +44,10 @@
         color: val(--secondary_text_color);
     }
 
+    .border{
+        border-bottom: 1px solid black;
+    }
+
 }
 
 .slick-dots ul .slick-active div  {
