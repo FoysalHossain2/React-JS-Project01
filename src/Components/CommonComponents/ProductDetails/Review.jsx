@@ -15,10 +15,12 @@ export const Review = () => {
         </div>
 
         <div className='mt-[42px]'>
-            <p className='font-DM_Sans text-sm text-main_text_color'>
+            <p className='font-DM_Sans text-sm text-main_text_color pb-3'>
                 1 review for Product
             </p>
         </div>
+
+        <hr className='pt-5 ' />
 
         <div className='flex items-center justify-between mb-[14px]'>
             <div className='flex items-center gap-x-9'>
@@ -39,7 +41,7 @@ export const Review = () => {
     </div>
     <hr className='mt-[15px]' />
 
-    <div>
+    <div className='mt-[53px]'>
         <p className='font-DM_Sans text-[20px] text-main_text_color font-bold pb-[53px]'>
             Add a Review
         </p>
@@ -51,7 +53,7 @@ export const Review = () => {
                 id='name' 
                 name='name' 
                 placeholder='Your name here'
-                className='border w-[700px]'
+                className='border-b-2 border-[#F0F0F0] w-1/2'
             />
        </div>
 
@@ -62,7 +64,7 @@ export const Review = () => {
                 id='name' 
                 name='name' 
                 placeholder='Your email here'
-                className='border w-[700px]'
+                className='border-b-2 border-[#F0F0F0] w-1/2'
             />
        </div>
 
@@ -71,11 +73,17 @@ export const Review = () => {
            <textarea 
                 name="review" 
                 id="review"
-                className=' border w-[700px] '
+                rows="4" cols="50"
                 placeholder='Your review here'
+                className=' border-b-2 border-[#F0F0F0]  w-1/2 '
            >
-
            </textarea>
+       </div>
+
+       <div className='mt-[29px]'>
+            <button className='py-[10px] px-14 bg-main_text_color text-white font-DM_Sans'>
+                Post
+            </button>
        </div>
     </div>
     </>
