@@ -7,15 +7,18 @@ import ErrorPage from '../../Components/CommonComponents/ErrorPage';
 import Loading from '../../Components/CommonComponents/Loading';
 import RatingStar from '../../Components/ProductDetailesComponent/RatingStar';
 import ProductInfo from '../../Components/ProductDetailesComponent/ProductInfo';
+import { useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
 
   const dispatch = useDispatch();
-  const [EachProduct, setEachProduct] = useState({})
-  console.log(EachProduct);
+  const [EachProduct, setEachProduct] = useState({});
 
+  const {productId} = useParams();
+  console.log(productId);
+  
   useEffect(() => {
-    dispatch(FetchDataProduct("https://dummyjson.com/products/2"))
+    dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
   }, [])
   
 
@@ -63,7 +66,7 @@ const ProductDetails = () => {
           <div className='mt-[45px]'>
             <h2  className='font-bold text-[39px] pb-3'>{EachProduct.title ? EachProduct.title : "Product"}</h2>
             <RatingStar ratingStar={EachProduct.rating} />
-            <div className='flex gap-x-4 mt-3'>
+            <div className='flex items-center gap-x-4 mt-3'>
               <p className='line-through'>${(EachProduct.price)}.00</p>
               <p className='font-bold text-[20px] font-DM_Sans text-main_text_color'>
                 ${EachProduct.price - Math.round((EachProduct.price * EachProduct.discountPercentage / 100))}.00

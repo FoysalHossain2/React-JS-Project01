@@ -77,7 +77,8 @@ const ShopeRightBottom = () => {
                           ProductPrice={ProductsItem.price}
                           colorVariant={true}
                           GrideLayout={GrideLayout}
-                        />
+                          productId={ProductsItem.id}
+                          />
                       </Link>
                     </div>
                     ))}
