@@ -13,16 +13,55 @@ const RegistrationTop = () => {
     Address2:"",
     City:"",
     PostCode:"",
+    Division:"",
+    District:"",
     Password:"",
-    RepeatPassword:""
+    RepeatPassword:"",
+    agreement: false,
+    Subscribe1: false,
+    Subscribe2: false
   })
 
   // function implementation
   const HandleUserInput = (e) => {
-    console.log('hello', e.target.id);
+    if (e.target.checked) {
+      console.log(e.target.checked);
+      setUserInfo({
+        ...userInfo,
+        [e.target.id]: true,
+      });
+    } else {
+      setUserInfo({
+        ...userInfo,
+        [e.target.id]: e.target.value,
+      });
+    }
   }
 
+  console.log(userInfo);
 
+
+  // HandleSingUpBtn functionality 
+  const HandleSingUpBtn = () => {
+
+    const {FirstName, Email, PhoneNumber, Password, RepeatPassword, agreement} = userInfo;
+
+    if (!FirstName) {
+      console.log('FirstName is Messing');
+    } else if (!Email) {
+      console.log('Email is Messing');
+    } else if (!PhoneNumber) {
+      console.log("PhoneNumber is Messing");
+    } else if (!Password) {
+      console.log("Password is Messing");
+    } else if (!RepeatPassword) {
+      console.log("RepeatPassword is Messing");
+    } else if (!agreement) {
+      console.log("agreement is Messing");
+    } else {
+      console.log('All Working');
+    }
+  }
 
 
 
@@ -140,21 +179,29 @@ const RegistrationTop = () => {
                 <div className='flex gap-x-12 items-center basis-1/2 mt-6'>
                   <div className='basis-2/6'>
                     <div className='font-DM_Sans text-base font-normal text-main_text_color pb-[10px]'>Division</div>
-                    <select name="Division" id="Division" className='w-full text-[#767676]' onChange={HandleUserInput}>
-                      <option value="">Dhaka</option>
-                      <option value="">Rajsshi</option>
-                      <option value="">Dhaka</option>
-                      <option value="">Dhaka</option>
-                      <option value="">Dhaka</option>
-                      <option value="">Dhaka</option>
+                    <select 
+                      name="Division" 
+                      id="Division" 
+                      className='w-full text-[#767676]' 
+                      onChange={HandleUserInput}>
+                      <option value="Dhaka">Dhaka</option>
+                      <option value="Rajshahi">Rajshahi</option>
+                      <option value="Chottogram">Chottogram</option>
+                      <option value="Barisal">Barisal</option>
+                      <option value="Rangpur">Rangpur</option>
+                      <option value="Khulna">Khulna</option>
                     </select>
                   </div>
 
                   <div className='basis-2/6'>
                     <div className='font-DM_Sans text-base font-normal text-main_text_color pb-[10px]'>District</div>
-                    <select name="District" id="District" className='w-full text-[#767676]' onChange={HandleUserInput}>
-                      <option value="">Dhaka</option>
-                      <option value="">Dhaka</option>
+                    <select 
+                      name="District" 
+                      id="District" 
+                      className='w-full text-[#767676]' 
+                      onChange={HandleUserInput}>
+                      <option value="Manikgonj">Manikgonj</option>
+                      <option value="Mymenshing">Mymenshing</option>
                       <option value="">Dhaka</option>
                       <option value="">Dhaka</option>
                       <option value="">Dhaka</option>
@@ -199,6 +246,55 @@ const RegistrationTop = () => {
             </form>
           </div>
           {/* personal details */}
+
+          <hr className='mt-[70px] mb-[65px]' />
+
+          <div className='flex items-center gap-x-4'>
+            <input 
+              type="checkbox" 
+              id="agreement" 
+              name="agreement"
+              onChange={HandleUserInput} 
+            />
+            <label htmlFor="">I have read agree to the Privacy Policy</label>
+          </div>
+
+          {/* subscribe */}
+          <div className='flex items-center gap-x-10 mt-[23px]'>
+            <p>Subscribe Newsletter</p>
+            <div className='flex items-center gap-x-6'>
+
+              <div className='flex items-center gap-x-2'>
+                <label htmlFor="">Yes</label>
+                <input 
+                  type="checkbox"
+                  id='Subscribe1'
+                  name='Subscribe1' 
+                  className='bg-main_text_color'
+                  onChange={HandleUserInput} 
+                />
+              </div>
+
+              <div className='flex items-center gap-x-2'>   
+                <label htmlFor="">No</label>
+                <input 
+                  type="checkbox"
+                  id='Subscribe2'
+                  name='Subscribe2' 
+                  onChange={HandleUserInput} 
+                />
+              </div>
+            </div>
+          </div>
+          {/* subscribe */}
+
+          {/* button */}
+          <div className='mt-[27px]'>
+            <button className='bg-main_text_color py-3 px-14 text-white' onClick={HandleSingUpBtn}>
+              Log in
+            </button>
+          </div>
+          {/* button */}
       </div>
     </div>
     </>
