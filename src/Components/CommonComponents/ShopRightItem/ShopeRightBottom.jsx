@@ -27,9 +27,11 @@ const ShopeRightBottom = () => {
 
   const {data, status} = useSelector((state) => state.product)
 
+  
   useEffect(() => {
     if (status === "IDLE" ) {
       setAllProducts(data.products )
+      console.log(AllProducts);
     }
   }, [data, status])  
 
