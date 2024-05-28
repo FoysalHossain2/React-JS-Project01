@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SingUpInput = ({inputType, placeHolder, labeTitle, inputId, className, oninputChange}) => {
+const SingUpInput = ({inputType, placeHolder, labeTitle, inputId, className, oninputChange, valueFrom}) => {
   return (
     <>
     <div className='flex flex-col py-[10px]'>    
@@ -16,6 +16,7 @@ const SingUpInput = ({inputType, placeHolder, labeTitle, inputId, className, oni
                 type={inputType} 
                 id={inputId}
                 name={inputId}
+                value={valueFrom}
                 placeholder={placeHolder}
                 onChange={oninputChange}
             />

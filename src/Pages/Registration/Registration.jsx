@@ -1,9 +1,13 @@
 import React,{useState} from 'react'
 import RegistrationTop from '../../Components/RegistrationComponent/RegistrationTop';
 import SingUpInput from '../../Components/RegistrationComponent/SingUpInput'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { toast, Bounce } from 'react-toastify'
 
 
 const Registration = () => {
+
+  const auth = getAuth();
 
 
   const [userInfo, setUserInfo] = useState({
@@ -136,7 +140,40 @@ const Registration = () => {
       RepeatPasswordError: "",
       agreementError: "",
     });
-      alert('All Working');
+
+    setUserInfo({
+      FirstName: "",
+      LastName: "",
+      Email:"",
+      PhoneNumber:"",
+      Address1:"",
+      Address2:"",
+      City:"",
+      PostCode:"",
+      Division:"",
+      District:"",
+      Password:"",
+      RepeatPassword:"",
+      agreement: false,
+      Subscribe1: false,
+      Subscribe2: false
+    })
+    
+    // create user with firebase createUserWithEmailAndPassword
+    createUserWithEmailAndPassword(auth, userInfo.Email, userInfo.Password).then((userCredential) => {
+      toast.success(`${userInfo.FirstName} Registration done`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+        });
+    })
+
     }
   }
 
@@ -167,6 +204,7 @@ const Registration = () => {
                   inputType={'text'}
                   placeHolder={`First Name `}
                   inputId={'FirstName'}
+                  valueFrom={userInfo.FirstName}
                   className={`border-b-2 border-[#F0F0F0] py-4 w-[507px] ${userInfoError.FirstNameError ? ' border-b-2 border-red-500' : 'border-b-2 border-[#F0F0F0]'}`}
                   oninputChange = {HandleUserInput}
                 />
@@ -182,6 +220,7 @@ const Registration = () => {
                     inputType={'text'}
                     placeHolder={'Last Name'}
                     inputId={'LastName'}
+                    valueFrom={userInfo.LastName}
                     className={`border-b-2 border-[#F0F0F0] py-4 w-[507px] `}
                     oninputChange = {HandleUserInput}
                   />
@@ -193,6 +232,7 @@ const Registration = () => {
                     inputType={'text'}
                     placeHolder={'Email address'}
                     inputId={'Email'}
+                    valueFrom={userInfo.Email}
                     className={`border-b-2 border-[#F0F0F0] py-4 w-[507px] ${userInfoError.EmailError ? ' border-b-2 border-red-500' : 'border-b-2 border-[#F0F0F0]'}`}
                     oninputChange = {HandleUserInput} 
                   />
@@ -206,6 +246,7 @@ const Registration = () => {
                   inputType={'number'}
                   placeHolder={'Your phone number'}
                   inputId={'PhoneNumber'}
+                  valueFrom={userInfo.PhoneNumber}
                   className={`border-b-2 border-[#F0F0F0] py-4 w-[507px] ${userInfoError.PhoneNumberError ? ' border-b-2 border-red-500' : 'border-b-2 border-[#F0F0F0]'}`}
                   oninputChange = {HandleUserInput}
                 />
@@ -228,6 +269,7 @@ const Registration = () => {
                     inputType={'text'}
                     placeHolder={'4279 Zboncak Port Suite 6212'}
                     inputId={'Address1'}
+                    valueFrom={userInfo.Address1}
                     className={`border-b-2 border-[#F0F0F0] py-4 w-[507px] ${userInfoError.Address1Error ? ' border-b-2 border-red-500' : 'border-b-2 border-[#F0F0F0]'}`}
                     oninputChange = {HandleUserInput}
                   />
@@ -238,6 +280,7 @@ const Registration = () => {
                   inputType={'text'}
                   placeHolder={'-'}
                   inputId={'Address2'}
+                  valueFrom={userInfo.Address2}
                   className={'border-b-2 border-[#F0F0F0] py-4 w-[507px]'}
                   oninputChange = {HandleUserInput}
                 />
@@ -247,6 +290,7 @@ const Registration = () => {
                   inputType={'text'}
                   placeHolder={'City'}
                   inputId={'City'}
+                  valueFrom={userInfo.City}
                   className={'border-b-2 border-[#F0F0F0] py-4 w-[507px]'}
                   oninputChange = {HandleUserInput}
                 />
@@ -257,6 +301,7 @@ const Registration = () => {
                   placeHolder={'Your phone number'}
                   inputId={'PostCode'}
                   className={'border-b-2 border-[#F0F0F0] py-4 w-[507px]'}
+                  valueFrom={userInfo.PostCode}
                   oninputChange = {HandleUserInput}
                 />
 
@@ -268,8 +313,11 @@ const Registration = () => {
                     <select 
                       name="Division" 
                       id="Division" 
+                      value={userInfo.Division}
                       className='w-full text-[#767676]' 
+
                       onChange={HandleUserInput}>
+                      <option value="select">select</option>
                       <option value="Dhaka">Dhaka</option>
                       <option value="Rajshahi">Rajshahi</option>
                       <option value="Chottogram">Chottogram</option>
@@ -284,14 +332,12 @@ const Registration = () => {
                     <select 
                       name="District" 
                       id="District" 
+                      value={userInfo.District}
                       className='w-full text-[#767676]' 
                       onChange={HandleUserInput}>
+                      <option value="select">select</option>
                       <option value="Manikgonj">Manikgonj</option>
                       <option value="Mymenshing">Mymenshing</option>
-                      <option value="">Dhaka</option>
-                      <option value="">Dhaka</option>
-                      <option value="">Dhaka</option>
-                      <option value="">Dhaka</option>
                     </select>
                   </div>
                 </div>
@@ -311,6 +357,7 @@ const Registration = () => {
                     inputType={'password'}
                     placeHolder={'Password'}
                     inputId={'Password'}
+                    valueFrom={userInfo.Password}
                     className={`border-b-2 border-[#F0F0F0] py-4 ${userInfoError.PasswordError ? ' border-b-2 border-red-500' : 'border-b-2 border-[#F0F0F0]'}`}
                     oninputChange = {HandleUserInput}
                   />
@@ -322,6 +369,7 @@ const Registration = () => {
                     inputType={'password'}
                     placeHolder={'Repeat Password'}
                     inputId={'RepeatPassword'}
+                    valueFrom={userInfo.RepeatPassword}
                     className={`border-b-2 border-[#F0F0F0] py-4 ${userInfoError.RepeatPasswordError ? ' border-b-2 border-red-500' : 'border-b-2 border-[#F0F0F0]'}`}
                     oninputChange = {HandleUserInput}
                   />
@@ -338,9 +386,10 @@ const Registration = () => {
               type="checkbox" 
               id="agreement" 
               name="agreement"
+              value={userInfo.agreement}
               onChange={HandleUserInput} 
               />
-            <label htmlFor="" className={`${userInfoError.agreementError ? '  text-red-500' : 'text-[#F0F0F0]'}`}>I have read agree to the Privacy Policy</label>
+            <label htmlFor="" className={`${userInfoError.agreementError ? '  text-red-500' : 'text-black'}`}>I have read agree to the Privacy Policy</label>
           </div>
 
           {/* subscribe */}
@@ -355,6 +404,7 @@ const Registration = () => {
                   id='Subscribe1'
                   name='Subscribe1' 
                   className='bg-main_text_color'
+                  value={userInfo.Subscribe1}
                   onChange={HandleUserInput} 
                   />
               </div>
@@ -365,6 +415,7 @@ const Registration = () => {
                   type="checkbox"
                   id='Subscribe2'
                   name='Subscribe2' 
+                  value={userInfo.Subscribe2}
                   onChange={HandleUserInput} 
                   />
               </div>

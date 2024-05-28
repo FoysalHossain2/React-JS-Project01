@@ -4,6 +4,8 @@ import Home from './Pages/Home/Home';
 import Shop from './Pages/Shop/Shop';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Registration from './Pages/Registration/Registration';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const router = createBrowserRouter(
@@ -23,10 +25,13 @@ const router = createBrowserRouter(
 function App() {
 
   return (
+    <>
+    <ToastContainer />
     <RouterProvider router={router}>
       <Home/>
       <Shop/>
     </RouterProvider>
+    </>
   )
 }
 
