@@ -109,6 +109,18 @@ const Banner = () => {
       <div>
         <img src={BannerImg} alt="" />
       </div>
+      <div>
+        <img src={BannerImg} alt="" />
+      </div>
+      <div>
+        <img src={BannerImg} alt="" />
+      </div>
+      <div>
+        <img src={BannerImg} alt="" />
+      </div>
+      <div>
+        <img src={BannerImg} alt="" />
+      </div>
 
       </Slider>
     </>

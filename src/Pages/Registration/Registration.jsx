@@ -3,6 +3,8 @@ import RegistrationTop from '../../Components/RegistrationComponent/Registration
 import SingUpInput from '../../Components/RegistrationComponent/SingUpInput'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { toast, Bounce } from 'react-toastify'
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from '../../../Firebase/FirebaseConfig.js';
 
 
 const Registration = () => {
@@ -57,8 +59,6 @@ const Registration = () => {
       });
     }
   }
-
-  console.log(userInfoError);
 
 
   // HandleSingUpBtn functionality 
@@ -130,37 +130,13 @@ const Registration = () => {
         RepeatPasswordError: "",
         agreementError: "agreement name is Messing"
       });
-    } else {      setUserInfoError({
-      ...userInfoError,
-      FirstNameError: "",
-      EmailError: "",
-      PhoneNumberError:"",
-      PasswordError: "",
-      PasswordNotMachError: "",
-      RepeatPasswordError: "",
-      agreementError: "",
-    });
+    } else {      
 
-    setUserInfo({
-      FirstName: "",
-      LastName: "",
-      Email:"",
-      PhoneNumber:"",
-      Address1:"",
-      Address2:"",
-      City:"",
-      PostCode:"",
-      Division:"",
-      District:"",
-      Password:"",
-      RepeatPassword:"",
-      agreement: false,
-      Subscribe1: false,
-      Subscribe2: false
-    })
     
     // create user with firebase createUserWithEmailAndPassword
-    createUserWithEmailAndPassword(auth, userInfo.Email, userInfo.Password).then((userCredential) => {
+    createUserWithEmailAndPassword(auth, userInfo.Email, userInfo.Password)
+    .then((userCredential) => {
+      // console.log(userCredential);
       toast.success(`${userInfo.FirstName} Registration done`, {
         position: "top-right",
         autoClose: 5000,
@@ -173,6 +149,48 @@ const Registration = () => {
         transition: Bounce,
         });
     })
+    .then(() => {
+      addDoc(collection(db, "users/"), userInfo)
+      .then((userCred) => {
+        console.log(userCred);
+      })
+      .catch((err) => {
+        console.log(err,'error');
+      })
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      setUserInfo({
+        FirstName: "",
+        LastName: "",
+        Email:"",
+        PhoneNumber:"",
+        Address1:"",
+        Address2:"",
+        City:"",
+        PostCode:"",
+        Division:"",
+        District:"",
+        Password:"",
+        RepeatPassword:"",
+        agreement: false,
+        Subscribe1: false,
+        Subscribe2: false
+      })
+    })
+
+    setUserInfoError({
+      ...userInfoError,
+      FirstNameError: "",
+      EmailError: "",
+      PhoneNumberError:"",
+      PasswordError: "",
+      PasswordNotMachError: "",
+      RepeatPasswordError: "",
+      agreementError: "",
+    });
 
     }
   }
