@@ -6,6 +6,8 @@ import { toast, Bounce } from 'react-toastify'
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from '../../../Firebase/FirebaseConfig.js';
 
+console.log(db);
+
 
 const Registration = () => {
 
@@ -155,11 +157,21 @@ const Registration = () => {
         console.log(userCred);
       })
       .catch((err) => {
-        console.log(err,'error');
+        console.log(err,'error fire store ');
       })
     })
     .catch((error) => {
-      console.log(error);
+      toast.error(`${error.code}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
     })
     .finally(() => {
       setUserInfo({

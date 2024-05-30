@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC-4kLBWXLXRZxrO-X3lutTjtELPL9BEwk",
   authDomain: "orebi-reactjs.firebaseapp.com",
