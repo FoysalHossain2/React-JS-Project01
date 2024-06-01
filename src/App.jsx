@@ -6,6 +6,7 @@ import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Registration from './Pages/Registration/Registration';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Cart from './Pages/Cart/Cart';
 
 
 const router = createBrowserRouter(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
         <Route path='/shop' element={<Shop/>} />
         <Route path='/productDetails/:productId' element={<ProductDetails/>} />
       <Route path='/registration' element={<Registration />}></Route>
+      <Route path='/cart' element={<Cart />} />
       </Route>,
     </Route>
   )

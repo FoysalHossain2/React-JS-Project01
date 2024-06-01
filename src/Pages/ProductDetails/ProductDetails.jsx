@@ -7,11 +7,13 @@ import ErrorPage from '../../Components/CommonComponents/ErrorPage';
 import Loading from '../../Components/CommonComponents/Loading';
 import RatingStar from '../../Components/ProductDetailesComponent/RatingStar';
 import ProductInfo from '../../Components/ProductDetailesComponent/ProductInfo';
-import { useParams } from 'react-router-dom';
+import { addToCart } from '../../Redux/AllSlice/AddToCartSlice/AddToCartSlice';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
 
   const dispatch = useDispatch();
+  const naviGate = useNavigate()
   const [EachProduct, setEachProduct] = useState({});
 
   const {productId} = useParams();
@@ -30,8 +32,13 @@ const ProductDetails = () => {
     }
   }, [data, status])
 
-  console.log(EachProduct);  
-  console.log((EachProduct.price * EachProduct.discountPercentage ) / 10);
+
+
+  // HandleAddToCart functionally
+  const HandleAddToCart = () => {
+    dispatch(addToCart(EachProduct))
+    naviGate('/cart')
+  }
   
 
   
@@ -74,7 +81,7 @@ const ProductDetails = () => {
             </div>
 
             <div>
-              <ProductInfo ProductStock={EachProduct.stock} />
+              <ProductInfo ProductStock={EachProduct.stock} onAddToCart={HandleAddToCart} />
             </div>
           </div>
       </div>

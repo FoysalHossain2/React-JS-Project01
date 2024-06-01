@@ -3,7 +3,7 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import ProductDetails from '../CommonComponents/ProductDetails/ProductDetails';
 import { Review } from '../CommonComponents/ProductDetails/Review';
 
-const ProductInfo = ({ProductStock}) => {
+const ProductInfo = ({ProductStock, onAddToCart}) => {
     
 
 
@@ -71,11 +71,17 @@ const ProductInfo = ({ProductStock}) => {
         </div>
 
         <div className='flex items-center mt-[50px] gap-x-4'>
-            <button className='border-2 border-[#F0F0F0] py-4 px-[46px] hover:bg-[#262626] hover:text-white'>Add to Wish List</button>
-            <button className='border-2 border-[#F0F0F0] py-4 px-16'>Add to Cart</button>
+
+            <button className='border-2 border-[#F0F0F0] py-4 px-[46px] hover:bg-[#262626] hover:text-white'>
+                Add to Wish List
+            </button>
+
+            <button className='border-2 border-[#F0F0F0] py-4 px-16 hover:bg-[#262626] hover:text-white'  onClick={onAddToCart}>
+                Add to Cart
+            </button>
         </div>
 
-        <hr />
+        <hr className='mt-10' />
 
         {/* productDetails */}
         <ProductDetails title={"FEATURES & DETAILS"} />
