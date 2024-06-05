@@ -129,12 +129,24 @@ const Cart = () => {
                 </h2>
               </div>
               <div className='flex items-end'>
-                <div className='flex w-full border-2 border-secondary_text_color py-3'>
+                <div className='flex w-full border-2 border-[#F0F0F0] py-3'>
+                  <h5 className='ml-3 font-DM_Sans font-bold text-main_text_color'>
+                  Subtotal
+                  </h5>
+                </div>
+                <div className='flex w-full border-2 border-[#F0F0F0] py-3'>
+                  <h5 className='ml-3 font-DM_Sans font-bold text-main_text_color '>
+                    389.99 $
+                  </h5>
+                </div>
+              </div>
+              <div className='flex items-end'>
+                <div className='flex w-full border-2 border-[#F0F0F0] py-3'>
                   <h5 className='ml-3 font-DM_Sans font-bold text-main_text_color'>
                     Total
                   </h5>
                 </div>
-                <div className='flex w-full border-2 border-secondary_text_color py-3'>
+                <div className='flex w-full border-2 border-[#F0F0F0] py-3'>
                   <h5 className='ml-3 font-DM_Sans font-bold text-main_text_color '>
                     389.99 $
                   </h5>
