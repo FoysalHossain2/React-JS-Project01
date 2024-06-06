@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BreadCrumb from '../../Components/CommonComponents/BreadCrumb/BreadCrumb'
 import Arrivals4 from '../../assets/NewArrivals/Arrivals4.png'
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
 import { useSelector, useDispatch } from 'react-redux';
-import { RemoveCartItem , ProductIncrement, ProductDecrement} from '../../Redux/AllSlice/AddToCartSlice/AddToCartSlice';
+import { RemoveCartItem , ProductIncrement, ProductDecrement, getTotal} from '../../Redux/AllSlice/AddToCartSlice/AddToCartSlice';
 
 
 
@@ -12,7 +12,7 @@ const Cart = () => {
 
   const dispatch = useDispatch();
 
-  const {CartItem} = useSelector((state) => state.cart)
+  const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart);
 
 
   // HandleOnChange functionality
@@ -36,6 +36,12 @@ const Cart = () => {
   const HandleIncrement = (item) => {
     dispatch(ProductIncrement(item))
   }
+
+
+  useEffect(() => {
+    dispatch(getTotal())
+  }, [dispatch, CartItem])
+  
 
 
 
@@ -125,7 +131,7 @@ const Cart = () => {
             <div className='flex flex-col basis-4/12'>
               <div>
                 <h2 className='font-DM_Sans font-bold text-main_text_color text-end mr-2 mb-6'>
-                  Cart totals
+                  Cart totals: {TotalCartItem}
                 </h2>
               </div>
               <div className='flex items-end'>
@@ -136,7 +142,7 @@ const Cart = () => {
                 </div>
                 <div className='flex w-full border-2 border-[#F0F0F0] py-3'>
                   <h5 className='ml-3 font-DM_Sans font-bold text-main_text_color '>
-                    389.99 $
+                    {TotalAmount} $
                   </h5>
                 </div>
               </div>
@@ -148,7 +154,7 @@ const Cart = () => {
                 </div>
                 <div className='flex w-full border-2 border-[#F0F0F0] py-3'>
                   <h5 className='ml-3 font-DM_Sans font-bold text-main_text_color '>
-                    389.99 $
+                    {TotalAmount} $
                   </h5>
                 </div>
               </div>

@@ -74,9 +74,21 @@ export const AddToCardSlice = createSlice({
         },
 
         getTotal: (state, action) => {
-            state.CartItem.reducer((totalCart, cartItem) => {
-                console.log(cartItem);
-            }, {})
+            const totalCarts = state.CartItem.reduce((totalCart, cartItem) => {
+                const {CartQuantity, price} = cartItem;
+                const totalCartPrice = CartQuantity * price;
+                totalCart.totalAmount += Math.round(totalCartPrice);
+                totalCart.totalItems += CartQuantity;
+                return totalCart;
+            }, 
+            {
+                totalAmount: 0,
+                totalItems: 0,
+            }
+            );
+            state.TotalCartItem = totalCarts.totalItems;
+            state.TotalAmount = totalCarts.totalAmount
+            console.log(totalCarts);
         }
     }
 })

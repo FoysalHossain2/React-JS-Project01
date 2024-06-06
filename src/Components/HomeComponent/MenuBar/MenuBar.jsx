@@ -10,6 +10,7 @@ import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 
 const  MenuBar = () => {
@@ -54,6 +55,9 @@ useEffect(() => {
 
 }, [])
 
+
+
+const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
 
 
 
@@ -128,7 +132,7 @@ useEffect(() => {
 
                           {/* -----------------ShoppingCart overlay------------- */}
                           {ShoppingCart && (
-
+                            
                           <div  className='w-[360px] h-[260px] absolute mt-[30px] z-10 ml-[-320px] '>
                             <Flex className={'justify-between items-center bg-[#767676cc] py-5 px-5'}>
                               <div className='w-[80px] h-[80px]'>
