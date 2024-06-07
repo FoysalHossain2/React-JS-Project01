@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Button = ({className, title}) => {
+const Button = ({className, title, onClickButton}) => {
   return (
     <>
-      <div className={className ? className : 'flex items-start p-2 bg-black text-white '}>
+      <div 
+      onClick={onClickButton} 
+      className={className ? className : 'flex items-start p-2 bg-black text-white '}
+      >
         {title? title : "Non"}
       </div>
     </>

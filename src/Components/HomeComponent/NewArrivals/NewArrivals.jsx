@@ -101,6 +101,7 @@ function SampleNextArrow(props) {
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
+            arrows: false,
           }
         }
       ]
@@ -130,7 +131,7 @@ function SampleNextArrow(props) {
                       item.bize === true ? (
                         <Button 
                         title={item.bizeItem === true ? 'New' : item.discountOffer}
-                        className={'bg-black text-white py-[9px] px-[33px]'}
+                        className={'bg-black text-[10px] md:text-base text-white py-[4px] md:py-[9px] px-[23px] md:px-[33px] '}
                        /> 
                       ): null
                     

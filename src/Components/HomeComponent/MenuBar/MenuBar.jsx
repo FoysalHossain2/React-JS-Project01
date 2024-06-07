@@ -9,8 +9,9 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { Link , useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { RemoveCartItem } from '../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice'
 
 
 const  MenuBar = () => {
@@ -18,7 +19,9 @@ const  MenuBar = () => {
   const [singUp, setSingUp] = useState(false);
   const [showCategory, setShowCategory] =useState(false); 
   const [ShoppingCart, setShoppingCart] =useState(false); 
-  const MenuRef = useRef()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const MenuRef = useRef();
 
 
   const HandleClick = () => {
@@ -56,9 +59,18 @@ useEffect(() => {
 }, [])
 
 
-
 const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
 
+// HandleDeleted functionality
+const HandleDeleted = (items) => {
+  dispatch(RemoveCartItem(items))
+}
+
+
+// HandleViewCart functionality
+const HandleViewCart = () => {
+  navigate('/cart')
+}
 
 
 
@@ -108,7 +120,7 @@ const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
                     <Flex className='gap-4 items-center md:gap-10 mt-[-93px] md:mt-0'> 
                       <div className='flex gap-1 cursor-pointer ' onClick={HandleClick}>
                        <div className='flex items-center justify-center'>
-                       <FaUser className={`${singUp ? 'text-orange-300' : null}`} />
+                       <FaUser className={`text-2xl ${singUp ? 'text-orange-700' : null}`} />
                           {singUp === true ? <MdOutlineArrowDropUp className='text-[25px]' /> : <MdOutlineArrowDropDown className='text-[25px]' />}
                        </div>
                        {/* ------------------singUp overlay------------- */}
@@ -126,38 +138,50 @@ const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
 
 
                         <div>
-                         <div onClick={HandleShoppingCart}>
-                            <FaShoppingCart className='w-5 cursor-pointer' />
+                         <div onClick={HandleShoppingCart} className='absolute'>
+                            <FaShoppingCart className=' text-2xl cursor-pointer ' />
                          </div>
 
+                          <span class=" ml-6 flex items-center justify-center rounded-full h-6 w-6 text-white bg-zinc-500">                               
+                            {TotalCartItem}
+                          </span>
+
                           {/* -----------------ShoppingCart overlay------------- */}
-                          {ShoppingCart && (
-                            
+           
+                          {ShoppingCart && (                          
                           <div  className='w-[360px] h-[260px] absolute mt-[30px] z-10 ml-[-320px] '>
-                            <Flex className={'justify-between items-center bg-[#767676cc] py-5 px-5'}>
-                              <div className='w-[80px] h-[80px]'>
-                                <img src={Arrivals2} alt={Arrivals2} />
-                              </div>
-                              <div className='-ml-8'>
-                                <p className='font-DM_Sans pb-3 text-main_text_color font-bold'>
-                                  Black Smart Watch
-                                </p>
-                                <span className='text-main_text_color font-bold'>
-                                  $44.00
-                                </span>
-                              </div>
-                              <button  className='flex items-center justify-center w-7 h-7 hover:bg-zinc-400 rounded-full'>
-                                  <FaXmark  />
-                              </button>
-                            </Flex>
+                            <div className='h-[30vh] overflow-y-scroll'>
+                              {CartItem.map((items) => (
+                                  <Flex className={'justify-between items-center bg-[#d9d5d5cc] py-5 px-5'}>
+                                    <div className='w-[80px] h-[80px] shadow-md'>
+                                      <img 
+                                        src={items.thumbnail ? items.thumbnail : Arrivals2}
+                                        alt={items.thumbnail ? items.thumbnail : Arrivals2} 
+                                      />
+                                    </div>
+                                    <div className='-ml-8'>
+                                      <p className='font-DM_Sans pb-3 text-main_text_color font-bold'>
+                                        {items.title ? items.title : 'Black Smart Watch'}
+                                      </p>
+                                      <span className='text-main_text_color font-bold'>
+                                        $44.00
+                                      </span>
+                                    </div>
+                                    <button  className='flex items-center justify-center w-7 h-7 hover:bg-zinc-400 rounded-full' onClick={()=>HandleDeleted(items)}>
+                                        <FaXmark  />
+                                    </button>
+                                  </Flex>
+                              ))}
+                            </div>
                             
                             <div className='py-5 px-5 bg-[#ffffffe0] flex items-start flex-col'>
                                 <p className='pb-4 font-DM_Sans text-main_text_color'>
-                                  Subtotal: <span className='font-bold'>$44.00</span>
+                                  Subtotal: <span className='font-bold'>{TotalAmount}</span>
                                 </p>
 
                                 <div className={'flex gap-x-10'}>
                                   <Button
+                                    onClickButton={HandleViewCart}
                                     title={'View Cart'}
                                     className={'py-3 px-8 border-2 border-[#262626] hover:text-white hover:bg-main_text_color cursor-pointer'}
                                   />
