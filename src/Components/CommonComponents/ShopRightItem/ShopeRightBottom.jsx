@@ -1,5 +1,6 @@
 import React,{useState, useEffect, useContext} from 'react'
 import Products2 from '../../CommonComponents/ShopRightItem/Products2';
+import Products from '../../CommonComponents/Products';
 import Button from '../Button';
 import { FaChevronLeft } from "react-icons/fa";
 import { ShopPageChangeContext } from '../../ShopComponent/ShopRight';
@@ -70,18 +71,16 @@ const ShopeRightBottom = () => {
           <div className={``}>
               <div className={`flex flex-wrap gap-y-5 justify-between ${GrideLayout ? 'flex flex-col' : ''} `}>          
                   {AllProducts?.slice(page * PageChange - PageChange, page * PageChange).map((ProductsItem, id) => (
-                    <div className={`w-[32%]`} key={ProductsItem.id}>
+                    <div className={`w-[32%] ${GrideLayout && 'w-full'}`} key={ProductsItem.id}>
 
-                      <Link to={`/productDetails/${ProductsItem.id}`} >
-                        <Products2
-                          image={ProductsItem.thumbnail}
-                          ProductName={ProductsItem.title}
-                          ProductPrice={ProductsItem.price}
-                          colorVariant={true}
-                          GrideLayout={GrideLayout}
-                          productId={ProductsItem.id}
-                          />
-                      </Link>
+                      <Products                 
+                        image={ProductsItem.thumbnail}
+                        ProductName={ProductsItem.title}
+                        ProductPrice={ProductsItem.price}
+                        colorVariant={true}
+                        GrideLayout={GrideLayout}
+                        productId={ProductsItem.id}
+                      />
                     </div>
                     ))}
               </div>

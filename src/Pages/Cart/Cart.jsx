@@ -49,8 +49,8 @@ const Cart = () => {
     <>
       <div>
         <div className="container">
-          <div className='mb-[125px]'>
-            <h1  className='font-DM_Sans text-[39px] font-bold mb-[11px] mt-[124px]'>
+          <div className='mb-[50px]'>
+            <h1  className='font-DM_Sans text-[39px] font-bold mb-[11px] mt-[100px]'>
               Cart
             </h1>
             <BreadCrumb />

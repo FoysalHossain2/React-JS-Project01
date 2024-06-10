@@ -2,10 +2,9 @@ import React, { useContext } from 'react'
 import { FiHeart } from "react-icons/fi";
 import { IoCart } from "react-icons/io5";
 import { DiGitCompare } from "react-icons/di";
+import { Link } from 'react-router-dom';
 
-
-const Products = ({colorVariant, bize, image, ProductPrice, ProductName, className, GrideLayout}) => {
-  console.log(GrideLayout );
+const Products2 = ({colorVariant, bize, image, ProductPrice, ProductName, className, GrideLayout, productId}) => {
 
 
   return (
@@ -18,9 +17,15 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
             <div className=' w-[93%] pb-6  md:w-full relative overflow-hidden group cursor-pointer'>
               {/* <div className='absolute top-5 ml-5 '> {bize}</div>  */}
 
-                <div className="object-cover " >
-                  <img src={image} alt={image} className={` h-[300px] w-[360px] `} />
+              <Link  to={`/productDetails/${productId}`}>
+              <div className="object-cover w-[360px]" >
+                    <img 
+                      src={image} 
+                      alt={image} 
+                      className={` h-[300px] w-[360px] `} 
+                    />
                 </div>
+              </Link>
               {/* -----------overlay--------  */}
               <div className=" absolute w-full -bottom-[40%]  transition-all left-0 group-hover:bottom-6">
                 <div className="flex justify-end flex-col items-end py-6">
@@ -64,9 +69,17 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
 
           {GrideLayout === true ? (
             <div className='flex flex-row justify-between'>
-                <div className="object-cover w-[360px]" >
-                    <img src={image} alt={image} className={` h-[300px] w-[360px] `} />
+
+              <Link  to={`/productDetails/${productId}`}>
+              <div className="object-cover w-[360px]" >
+                    <img 
+                      src={image} 
+                      alt={image} 
+                      className={` h-[300px] w-[360px] `} 
+                    />
                 </div>
+              </Link>
+
             <div className='ml-10 w-[440px]'>           
                 <div className=' flex justify-between pb-4'>
                     <h5 className={`${className} font-bold font-DM_Sans text-xl`}>{ProductName ? ProductName : ProductName}</h5>
@@ -84,4 +97,4 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
   )
 }
 
-export default Products;
+export default Products2;
