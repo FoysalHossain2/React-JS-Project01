@@ -7,7 +7,8 @@ const Overlay = ({
      discountDetailsFirst, 
      discountDetailsLast,
      discountAmount,
-     btnTitle
+     btnTitle,
+     onClickButton
     }) => {
   return (
     <>
@@ -25,6 +26,7 @@ const Overlay = ({
             <Button 
               className={'bg-main_text_color md:py-4 md:px-16 py-2 px-4 text-white hover:bg-slate-800 cursor-pointer'}
               title={btnTitle}
+              onClickButton={onClickButton}
             />
 
 

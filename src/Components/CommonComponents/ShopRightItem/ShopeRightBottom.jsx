@@ -1,14 +1,14 @@
 import React,{useState, useEffect, useContext} from 'react'
-import Products2 from '../../CommonComponents/ShopRightItem/Products2';
 import Products from '../../CommonComponents/Products';
 import Button from '../Button';
 import { FaChevronLeft } from "react-icons/fa";
 import { ShopPageChangeContext } from '../../ShopComponent/ShopRight';
 import { useSelector, useDispatch } from 'react-redux'
 import { FetchDataProduct, SetProducts } from '../../../Redux/AllSlice/ProduceSlice/ProductSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ErrorPage from '../ErrorPage';
 import Loading from '../Loading';
+import { addToCart } from '../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice';
 
 
 
@@ -19,6 +19,7 @@ const ShopeRightBottom = () => {
   const {PageChange , GrideLayout} = useContext(ShopPageChangeContext)
   const [AllProducts, setAllProducts] = useState([]);
   const [page , setPage] = useState(1);
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -32,10 +33,8 @@ const ShopeRightBottom = () => {
   useEffect(() => {
     if (status === "IDLE" ) {
       setAllProducts(data.products )
-      console.log(AllProducts);
     }
   }, [data, status])  
-
 
 
 
@@ -47,13 +46,18 @@ const ShopeRightBottom = () => {
   }
 
 
+  /**
+   * HandelAddToCart functionality
+   * @prams ProductsItem
+   */
+  const HandelAddToCart = (item) => {
+    dispatch(addToCart(item));
+    // navigate('/cart')
+    console.log(item);
+  }
 
 
 
-
-
-
-  console.log(PageChange);
   return (
     <>
       <div className='mt-14 px-1 md:px-0'>
@@ -73,13 +77,15 @@ const ShopeRightBottom = () => {
                   {AllProducts?.slice(page * PageChange - PageChange, page * PageChange).map((ProductsItem, id) => (
                     <div className={`w-[32%] ${GrideLayout && 'w-full'}`} key={ProductsItem.id}>
 
-                      <Products                 
+                      <Products     
+                        AddToCart={()=>HandelAddToCart(ProductsItem)}            
                         image={ProductsItem.thumbnail}
                         ProductName={ProductsItem.title}
                         ProductPrice={ProductsItem.price}
                         colorVariant={true}
                         GrideLayout={GrideLayout}
                         productId={ProductsItem.id}
+                        AllProductsItems={AllProducts}
                       />
                     </div>
                     ))}

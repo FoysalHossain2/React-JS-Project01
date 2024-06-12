@@ -6,10 +6,15 @@ import { toast, Bounce } from 'react-toastify'
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from '../../../Firebase/FirebaseConfig.js';
 
-console.log(db);
-
 
 const Registration = () => {
+
+  // Division list
+  const DivisionList = [{
+    title: 'Dhaka',
+    title: 'Dhaka',
+  }] 
+
 
   const auth = getAuth();
 

@@ -5,8 +5,19 @@ import Ad_2 from '../../../assets/Ad_2.png'
 import Ad_3 from '../../../assets/Ad_3.png'
 // import Button from '../CommonComponents/Button'
 import Overlay from '../../CommonComponents/Overlay'
+import { useNavigate } from 'react-router-dom'
+
 
 const SaleInfo = () => {
+
+  const navigator = useNavigate();
+
+  // HandleShopNav functionality
+  const HandleShopNav = () => {
+    navigator('/shop')
+  }
+
+
   return (
     <> 
       <div className='py-3 px-2 md:px-0'>
@@ -18,12 +29,13 @@ const SaleInfo = () => {
                 </div>
 
                 <Overlay 
-                className={'md:bottom-[72px] bottom-[30px] left-16'} 
-                title={'Phone sale'}
-                discountDetailsFirst={'up to'}
-                discountAmount={'30%'}
-                discountDetailsLast={'sale for all phones!'}
-                btnTitle={'Shop Now'}
+                  className={'md:bottom-[72px] bottom-[30px] left-16'} 
+                  title={'Phone sale'}
+                  discountDetailsFirst={'up to'}
+                  discountAmount={'30%'}
+                  discountDetailsLast={'sale for all phones!'}
+                  btnTitle={'Shop Now'}
+                  onClickButton={HandleShopNav}
                 />
                
               </div>
@@ -40,6 +52,7 @@ const SaleInfo = () => {
                       discountAmount={'70%'}
                       discountDetailsLast={'sale for all electronics!'}
                       btnTitle={'Shop Now'}
+                      onClickButton={HandleShopNav}
                     />
                  </div>
                  <div className='w-full relative'>
@@ -53,6 +66,7 @@ const SaleInfo = () => {
                         discountAmount={'50%'}
                         discountDetailsLast={'sale for all furniture items!'}
                         btnTitle={'Shop Now'}
+                        onClickButton={HandleShopNav}
                       />
                  </div>
                </div>

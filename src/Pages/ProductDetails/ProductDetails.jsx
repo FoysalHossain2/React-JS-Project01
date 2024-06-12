@@ -17,7 +17,6 @@ const ProductDetails = () => {
   const [EachProduct, setEachProduct] = useState({});
 
   const {productId} = useParams();
-  console.log(productId);
   
   useEffect(() => {
     dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
@@ -26,11 +25,13 @@ const ProductDetails = () => {
 
   const {data, status} = useSelector((state) => state.product)
 
+
   useEffect(() => {
     if (status === "IDLE" ) {
       setEachProduct(data)
     }
   }, [data, status])
+
 
 
 

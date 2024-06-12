@@ -5,6 +5,7 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
 import { useSelector, useDispatch } from 'react-redux';
 import { RemoveCartItem , ProductIncrement, ProductDecrement, getTotal} from '../../Redux/AllSlice/AddToCartSlice/AddToCartSlice';
+import { Link } from 'react-router-dom';
 
 
 
@@ -81,7 +82,7 @@ const Cart = () => {
 
           <div className='h-[500px] overflow-y-scroll'>
             {CartItem.map((item, id) => (          
-              <div className='flex items-center mt-8 justify-between' key={item.id}>
+              <div className='flex items-center mt-8 justify-between' key={id}>
                 <div className='flex items-center grow basis-60 ml-3'>
                   <span className='mr-3 cursor-pointer' onClick={() =>HandleDeleted(item)}>
                     <MdCancel />
@@ -161,11 +162,13 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className='flex justify-end mt-4'>
-            <button className='flex items-start justify-center bg-main_text_color px-4 py-4 text-white font-DM_Sans'>
-              Proceed to Checkout
-            </button>
-          </div>
+            <div className='flex justify-end mt-4'>
+          <Link to={'/registration'}>
+              <button className='flex items-start justify-center bg-main_text_color px-4 py-4 text-white font-DM_Sans'>
+                Proceed to Checkout
+              </button>
+          </Link>
+            </div>
 
         </div>
       </div>

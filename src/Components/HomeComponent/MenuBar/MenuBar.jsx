@@ -22,6 +22,7 @@ const  MenuBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const MenuRef = useRef();
+  const CartRef = useRef();
 
 
   const HandleClick = () => {
@@ -39,7 +40,8 @@ const  MenuBar = () => {
   }
 
   // HandleShoppingCart function
-  const HandleShoppingCart = () => {
+  const HandleShoppingCart = (e) => {
+    e.stopPropagation();
     setShoppingCart(!ShoppingCart)
     setShowCategory(false)
     setSingUp(false)
@@ -54,15 +56,23 @@ useEffect(() => {
       setShowCategory(false)
       setSingUp(false)
     }
+    if (CartRef.current.contains(e.target)) {
+      setShoppingCart(true)
+    }
   })
 
-}, [])
+  return(() => {
+    window.addEventListener('click', () => {});
+  })
+
+}, [ShoppingCart])
 
 
 const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
 
 // HandleDeleted functionality
 const HandleDeleted = (items) => {
+  setShoppingCart(true)
   dispatch(RemoveCartItem(items))
 }
 
@@ -71,6 +81,12 @@ const HandleDeleted = (items) => {
 const HandleViewCart = () => {
   navigate('/cart')
 }
+
+
+
+//  {item.title
+// ? `${item.title.slice(0, 15)}...`
+// : "Title Missing"}
 
 
 
@@ -138,7 +154,7 @@ const HandleViewCart = () => {
 
 
                         <div>
-                         <div onClick={HandleShoppingCart} className='absolute'>
+                         <div onClick={HandleShoppingCart} className='absolute' >
                             <FaShoppingCart className=' text-2xl cursor-pointer ' />
                          </div>
 
@@ -149,25 +165,27 @@ const HandleViewCart = () => {
                           {/* -----------------ShoppingCart overlay------------- */}
            
                           {ShoppingCart && (                          
-                          <div  className='w-[360px] h-[260px] absolute mt-[30px] z-10 ml-[-320px] '>
-                            <div className='h-[30vh] overflow-y-scroll'>
+                          <div  className='w-[360px] h-[260px] absolute mt-[30px] z-10 ml-[-320px] ' >
+                            <div className='h-[30vh] overflow-y-scroll' >
                               {CartItem.map((items) => (
-                                  <Flex className={'justify-between items-center bg-[#d9d5d5cc] py-5 px-5'}>
+                                  <Flex className={'justify-between items-center bg-[#d9d5d5cc] py-5 px-5'}  >
                                     <div className='w-[80px] h-[80px] shadow-md'>
                                       <img 
                                         src={items.thumbnail ? items.thumbnail : Arrivals2}
                                         alt={items.thumbnail ? items.thumbnail : Arrivals2} 
                                       />
                                     </div>
-                                    <div className='-ml-8'>
+                                    <div className='-ml-8 w-[150px]'>
                                       <p className='font-DM_Sans pb-3 text-main_text_color font-bold'>
-                                        {items.title ? items.title : 'Black Smart Watch'}
+                                        {items.title ? 
+                                        `${items.title.slice(0,10)}... `
+                                        : 'Title Messing'}
                                       </p>
                                       <span className='text-main_text_color font-bold'>
                                         $44.00
                                       </span>
                                     </div>
-                                    <button  className='flex items-center justify-center w-7 h-7 hover:bg-zinc-400 rounded-full' onClick={()=>HandleDeleted(items)}>
+                                    <button  className='flex items-center justify-center w-7 h-7 hover:bg-zinc-400 rounded-full' ref={CartRef} onClick={()=>HandleDeleted(items)}>
                                         <FaXmark  />
                                     </button>
                                   </Flex>
@@ -176,7 +194,7 @@ const HandleViewCart = () => {
                             
                             <div className='py-5 px-5 bg-[#ffffffe0] flex items-start flex-col'>
                                 <p className='pb-4 font-DM_Sans text-main_text_color'>
-                                  Subtotal: <span className='font-bold'>{TotalAmount}</span>
+                                  Subtotal: <span className='font-bold'>${TotalAmount}</span>
                                 </p>
 
                                 <div className={'flex gap-x-10'}>
