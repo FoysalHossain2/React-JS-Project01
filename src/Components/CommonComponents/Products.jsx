@@ -23,15 +23,15 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
       {GrideLayout ? '' : (
 
       <div >
-        <div className=' w-[93%] pb-6  md:w-full relative overflow-hidden group cursor-pointer'>
+        <div className=' w-[200px] pb-6  md:w-full  relative overflow-hidden group cursor-pointer '>
           <div className='absolute top-5 ml-5 '> {bize}</div> 
 
           <Link  to={`/productDetails/${productId}`}>
-          <div className="object-cover w-[360px]" >
+          <div className="object-cover w-[170px] h-[230px] md:h-[300px] md:w-[300px]  border-2 border-black">
                 <img 
                   src={image} 
                   alt={image} 
-                  className={` h-[350px] w-[300px] `} 
+                  className={` `} 
                 />
             </div>
           </Link>
@@ -68,7 +68,9 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
         <Link  to={`/productDetails/${productId}`}>
           <div>           
               <div className='w-[300px]  pb-4'>
-                  <h5 className={`${className} font-bold font-DM_Sans text-xl `}>{ProductName ? ProductName : ProductName}</h5>
+                  <h5 className={`${className} font-bold font-DM_Sans md:text-xl text-[16px] `}>
+                    {ProductName ? `${ProductName.slice(0,20)}... ` : ProductName}
+                  </h5>
                   <p>{ProductPrice ? `$${ProductPrice}` : '$44.00'}</p>
               </div>
               {colorVariant && <span>Black</span>} 

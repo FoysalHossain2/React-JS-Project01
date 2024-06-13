@@ -138,7 +138,7 @@ function SampleNextArrow(props) {
       <>
         <div className='mt-32'>
            <div className="container">
-                <h2 className='font-bold text-[39px] pb-12'>
+                <h2 className='font-bold text-[25px] sm:text-xl md:text-[39px] pb-12'>
                    {headingTitle ?  headingTitle : "Title is Missing"}
                 </h2>
   

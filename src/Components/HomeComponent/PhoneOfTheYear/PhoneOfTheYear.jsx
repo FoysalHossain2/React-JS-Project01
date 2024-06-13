@@ -1,8 +1,20 @@
 import React from 'react'
 import PhoneOfTheYearImg from '../../../assets/PhoneOfTheYearImg.png'
 import Button from '../../CommonComponents/Button'
+import { useNavigate } from 'react-router-dom';
 
 const PhoneOfTheYear = () => {
+
+
+  const navigator = useNavigate();
+
+  // HandleShopNav functionality
+  const HandleShopNav = () => {
+    navigator('/shop')
+  }
+
+
+
   return (
     <>
      <div className='mt-[130px] px-2 md:px-0'>
@@ -21,6 +33,7 @@ const PhoneOfTheYear = () => {
                      <Button
                      className={'text-white py-2 px-[40px] bg-main_text_color cursor-pointer '}
                      title={'Shop Now'}
+                     onClickButton={HandleShopNav}
                      />
                 </div>
 
