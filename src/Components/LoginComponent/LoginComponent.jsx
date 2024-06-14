@@ -1,7 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BreadCrumb from '../../Components/CommonComponents/BreadCrumb/BreadCrumb'
+import { ErrorMessage } from '../../../Utils/Utils'
 
 const LoginComponent = () => {
+
+  const [UserInLogin, setUserInLogin] = useState({
+    email: "",
+    password: "",
+  })
+
+
+  // HandleLoginInput onChange functionality
+  const HandleLoginInput = (e) => {
+    setUserInLogin({
+      ...UserInLogin,
+      [e.target.id]: e.target.value
+    })
+  }
+
+
+  // HandleLogin functionality
+  const HandleLogin = () => {
+    const {email, password} = UserInLogin;
+    if (!email || !checkEmail(email)) {
+     ErrorMessage('Your email is not valid') 
+    } else if (!password) {
+      ErrorMessage('Your password is not valid')
+    } else {
+      SuccessMessage('Every thing is ok')
+    }
+  }
+
+
+
+
   return (
     <>
     <div>
@@ -31,6 +63,7 @@ const LoginComponent = () => {
                           id='email'
                           placeholder='Enter Your Email'
                           className={'border-b-2 border-[#F0F0F0] w-[400px]'}
+                          onChange={HandleLoginInput}
                       />
                   </div>
 
@@ -44,11 +77,12 @@ const LoginComponent = () => {
                           id='password'
                           placeholder='********'
                           className={'border-b-2 border-[#F0F0F0] w-[400px]'}
+                          onChange={HandleLoginInput}
                       />
                   </div>
               </div>
 
-              <button className='font-DM_Sans font-bold hover:text-white hover:bg-black px-16 py-3 border-2 border-black mt-[30px]'>
+              <button className='font-DM_Sans font-bold hover:text-white hover:bg-black px-16 py-3 border-2 border-black mt-[30px]' onClick={HandleLogin}>
                 Login
               </button>
             </form>

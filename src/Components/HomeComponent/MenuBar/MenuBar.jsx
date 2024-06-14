@@ -128,9 +128,14 @@ const HandleViewCart = () => {
 
                   </Flex>  
 
+                  {/*=========== search option ==========  */}
                   <div>
-                    <Search placeholder='Search Products' className='font-normal text-sm '  />
+                    <Search
+                    type={'text'}
+                     placeholder='Search Products'
+                     className='font-normal text-sm md:w-[600px] w-max'  />
                  </div>
+                 {/*=========== search option ==========  */}
 
                  <div>
                     <Flex className='gap-4 items-center md:gap-10 mt-[-93px] md:mt-0'> 
