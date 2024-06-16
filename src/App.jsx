@@ -36,8 +36,6 @@ function App() {
     <>
     <ToastContainer />
     <RouterProvider router={router}>
-      <Home/>
-      <Shop/>
     </RouterProvider>
     </>
   )

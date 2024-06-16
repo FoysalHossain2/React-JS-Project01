@@ -198,6 +198,9 @@ const CheckoutComponent = () => {
                 </div>
                  {/* ------ Email Address * -------*/}
                  
+                 <button>
+                  Pro
+                 </button>
             </form>
           </div>
 

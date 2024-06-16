@@ -22,7 +22,7 @@ const ProductRightTop = ({onchangePage, GrideLayoutChange, changeIcon}) => {
       <Flex className={'gap-x-10'}>    
         <div className='flex items-center gap-x-2 '>
           <h2>Sort by:</h2>
-          <select name="sort" id="sort" className='min-w-[239px] py-2 border-2 cursor-pointer border-[#F0F0F0]'>
+          <select name="sort" id="sort" className='min-w-[230px] py-2 border-2 cursor-pointer border-[#F0F0F0] md:visible sm:hidden'>
             <option 
             value="Featured"
             className='text-secondary_text_color font-DM_Sans font-normal text-base'
