@@ -23,7 +23,7 @@ const Header = () => {
       <div className='py-[31px] bg-bg_Primary_color px-1 md:px-0'>
          <div className="container">
          <Flex className='sm:justify-between md:items-center '>
-          <picture>
+          <picture className=''>
               <img src={Logo} alt={Logo} title='OREBI logo'  />
             </picture>
             <div>

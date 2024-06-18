@@ -23,7 +23,7 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
       {GrideLayout ? '' : (
 
       <div >
-        <div className=' w-[200px] pb-6  md:w-full  relative overflow-hidden group cursor-pointer '>
+        <div className=' w-[300px] pb-6  md:w-full  relative overflow-hidden group cursor-pointer '>
           <div className='absolute top-5 ml-5 '> {bize}</div> 
 
           <Link  to={`/productDetails/${productId}`}>

@@ -53,7 +53,6 @@ const ShopeRightBottom = () => {
   const HandelAddToCart = (item) => {
     dispatch(addToCart(item));
     // navigate('/cart')
-    console.log(item);
   }
 
 

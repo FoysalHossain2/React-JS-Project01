@@ -19,6 +19,7 @@ const  MenuBar = () => {
   const [singUp, setSingUp] = useState(false);
   const [showCategory, setShowCategory] =useState(false); 
   const [ShoppingCart, setShoppingCart] =useState(false); 
+  const [CheckoutPage, setCheckoutPage] =useState(false); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const MenuRef = useRef();
@@ -83,10 +84,11 @@ const HandleViewCart = () => {
 }
 
 
-
-//  {item.title
-// ? `${item.title.slice(0, 15)}...`
-// : "Title Missing"}
+// HandleCheckoutPage functionality
+const HandleCheckoutPage = () => {
+  navigate('/checkout')
+  setCheckoutPage(!CheckoutPage)
+}
 
 
 
@@ -95,36 +97,39 @@ const HandleViewCart = () => {
         <div className='md:py-10 py-4 bg-bg_Secondary_color px-1 md:px-0' ref={MenuRef}>
             <div className='container'>
                <Flex className='items-center justify-between'>
-                <Flex className={'items-center gap-[10px] '}>
-                   <div onClick={HandleShowCategory}><HiMenuAlt2 className='cursor-pointer text-2xl' /></div>
-                  <p className='font-normal text-sm text-[#C4C4C4] hidden md:block hover:text-black '>
-                    Shop by Category
-                  </p>
+                  <Flex className={'items-center gap-[10px] '}>
 
-                  {/*---------- Category MenuBar---------- */}
-                    <div className={`w-[300px] h-[300px] mt-[350px]  bg-slate-800 z-10 absolute duration-300 text-white text-center ${showCategory === true ? 'md:left-[170px] left-0' : 'left-[-100%]'}`}>
-                      <ul className=' divide-y divide-[#ffffff07] '>
-                        <li  className='hover:bg-slate-900 py-3'>
-                          <Link to={'Accesories'}>Accesories</Link>
-                        </li>
-                        <li  className='hover:bg-slate-900 py-3'>
-                        <Link to={'Furniture'}>Furniture</Link>
-                        </li>
-                        <li  className='hover:bg-slate-900 py-3'>
-                          <Link to={'Electronics'}>Electronics</Link>
-                        </li>
-                        <li  className='hover:bg-slate-900 py-3'>
-                          <Link to={'Clothes'}>Clothes</Link>
-                        </li>
-                        <li  className='hover:bg-slate-900 py-3'>
-                          <Link to={'Bags'}>Bags</Link>
-                        </li>
-                        <li  className='hover:bg-slate-900 py-3'>
-                          <Link to={'Home appliances'}>Home appliances</Link>
-                        </li>
-                      </ul>
+                    <div onClick={HandleShowCategory} className='mt-[-165px] lg:mt-0 md:mt-0'>
+                      <HiMenuAlt2 className='cursor-pointer text-2xl '/>
                     </div>
+                    <p className='font-normal text-sm text-[#C4C4C4] hidden md:block hover:text-black '>
+                      Shop by Category
+                    </p>
+
                     {/*---------- Category MenuBar---------- */}
+                      <div className={`w-[300px] h-[300px] mt-[350px]  bg-slate-800 z-10 absolute duration-300 text-white text-center ${showCategory === true ? 'md:left-[170px] left-0' : 'left-[-100%]'}`}>
+                        <ul className=' divide-y divide-[#ffffff07] '>
+                          <li  className='hover:bg-slate-900 py-3'>
+                            <Link to={'Accesories'}>Accesories</Link>
+                          </li>
+                          <li  className='hover:bg-slate-900 py-3'>
+                          <Link to={'Furniture'}>Furniture</Link>
+                          </li>
+                          <li  className='hover:bg-slate-900 py-3'>
+                            <Link to={'Electronics'}>Electronics</Link>
+                          </li>
+                          <li  className='hover:bg-slate-900 py-3'>
+                            <Link to={'Clothes'}>Clothes</Link>
+                          </li>
+                          <li  className='hover:bg-slate-900 py-3'>
+                            <Link to={'Bags'}>Bags</Link>
+                          </li>
+                          <li  className='hover:bg-slate-900 py-3'>
+                            <Link to={'Home appliances'}>Home appliances</Link>
+                          </li>
+                        </ul>
+                      </div>
+                      {/*---------- Category MenuBar---------- */}
 
                   </Flex>  
 
@@ -209,6 +214,7 @@ const HandleViewCart = () => {
                                     className={'py-3 px-8 border-2 border-[#262626] hover:text-white hover:bg-main_text_color cursor-pointer'}
                                   />
                                   <Button
+                                    onClickButton={HandleCheckoutPage}
                                     title={'Checkout'}
                                     className={'py-3 px-8 border-2 border-[#262626] hover:text-white hover:bg-main_text_color cursor-pointer'}
                                   />

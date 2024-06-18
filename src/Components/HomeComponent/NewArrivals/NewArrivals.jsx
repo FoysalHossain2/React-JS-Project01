@@ -4,14 +4,15 @@ import Button from '../../CommonComponents/Button';
 import Slider from "react-slick";
 import { FaLongArrowAltRight , FaLongArrowAltLeft} from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FetchDataProduct } from '../../../Redux/AllSlice/ProduceSlice/ProductSlice';
-
+import { addToCart } from '../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice';
 
 
 
 // Next Arrow function
 function SampleNextArrow(props) {
+
   const {  className,style, onClick } = props;
   return (
     <div
@@ -68,7 +69,6 @@ function SampleNextArrow(props) {
         }
 
 
-        
         // slider Implementation
         var settings = {
           dots: false,
@@ -119,12 +119,13 @@ function SampleNextArrow(props) {
       const [page , setPage] = useState(1);
       const navigate = useNavigate()
       const dispatch = useDispatch();
+      const {productId} = useParams();
       
       const {data, status} = useSelector((state) => state.product)
   
     
       useEffect(() => {
-        dispatch(FetchDataProduct("https://dummyjson.com/products"))
+        dispatch(FetchDataProduct(`https://dummyjson.com/products${productId}`))
       }, [])
       
       useEffect(() => {
@@ -133,35 +134,43 @@ function SampleNextArrow(props) {
         }
       }, [data, status]) 
 
+
+      
+    // HandelAddToCart functionality
+    const HandelAddToCart = (items) => {
+      dispatch(addToCart(items))
+    }
+
+
   
     return (
       <>
         <div className='mt-32'>
            <div className="container">
-                <h2 className='font-bold text-[25px] sm:text-xl md:text-[39px] pb-12'>
+                <h2 className='font-bold sm:text-[29px] md:text-[33px] lg:text-[39px] pb-12'>
                    {headingTitle ?  headingTitle : "Title is Missing"}
                 </h2>
-  
-  
-                <Slider {...settings} className='flex justify-between'>
-                  {AllProduct?.map((item, id) => (
-  
-                    <Products key={id}
-                      image={item.thumbnail}
-                      ProductName={item.title}
-                      bize={ 
-                        item.bize === true ? (
-                          <Button 
-                          title={item.bizeItem === true ? 'New' : item.discountOffer}
-                          className={'bg-black text-[10px] md:text-base text-white py-[4px] md:py-[9px] px-[23px] md:px-[33px] '}
-                         /> 
-                        ): null
-                      
-                      }
-                    />
-                    ))}
-                </Slider>
-  
+
+                  <Slider {...settings} className='flex justify-between'>
+                    {AllProduct?.map((ProductItem, id) => (
+                <div className='w-[100%]'>
+                      <Products key={id}
+                        AddToCart={() => HandelAddToCart(ProductItem)}
+                        image={ProductItem.thumbnail}
+                        ProductName={ProductItem.title}
+                        bize={ 
+                          ProductItem.bize === true ? (
+                            <Button 
+                            title={ProductItem.bizeItem === true ? 'New' : ProductItem.discountOffer}
+                            className={'bg-black text-[10px] md:text-base text-white py-[4px] md:py-[9px] px-[23px] md:px-[33px] '}
+                          /> 
+                          ): null
+                        
+                        }
+                      />
+                </div>
+                      ))}
+                  </Slider>  
           </div>
         </div>
       </>
