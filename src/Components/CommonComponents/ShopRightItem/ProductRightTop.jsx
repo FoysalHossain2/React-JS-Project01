@@ -71,4 +71,4 @@ const ProductRightTop = ({onchangePage, GrideLayoutChange, changeIcon}) => {
   )
 }
 
-export default ProductRightTop
+export default ProductRightTop;

@@ -96,7 +96,8 @@ const HandleCheckoutPage = () => {
     <>   
         <div className='md:py-10 py-4 bg-bg_Secondary_color px-1 md:px-0' ref={MenuRef}>
             <div className='container'>
-               <Flex className='items-center justify-between'>
+               <div className='flex items-center justify-between '>
+                
                   <Flex className={'items-center gap-[10px] '}>
 
                     <div onClick={HandleShowCategory} className='mt-[-165px] lg:mt-0 md:mt-0'>
@@ -138,7 +139,7 @@ const HandleCheckoutPage = () => {
                     <Search
                     type={'text'}
                      placeholder='Search Products'
-                     className='font-normal text-sm md:w-[600px] w-max'  />
+                     className='font-normal text-sm '  />
                  </div>
                  {/*=========== search option ==========  */}
 
@@ -227,7 +228,7 @@ const HandleCheckoutPage = () => {
 
                    </Flex>
                  </div>
-              </Flex>
+              </div>
 
             </div>
         </div>

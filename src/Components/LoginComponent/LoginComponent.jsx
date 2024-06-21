@@ -20,7 +20,8 @@ const LoginComponent = () => {
 
 
   // HandleLogin functionality
-  const HandleLogin = () => {
+  const HandleLogin = (e) => {
+    e.preventDefault()
     const {email, password} = UserInLogin;
     if (!email || !checkEmail(email)) {
      ErrorMessage('Your email is not valid') 
@@ -69,7 +70,7 @@ const LoginComponent = () => {
 
                   <div className='flex flex-col'>
                       <label className='font-DM_Sans font-bold text-main_text_color pb-4'>
-                          Email address
+                          Password
                       </label>
                       <input 
                           type="password"

@@ -23,15 +23,15 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
       {GrideLayout ? '' : (
 
       <div >
-        <div className=' w-[300px] pb-6  md:w-full  relative overflow-hidden group cursor-pointer '>
+        <div className=' w-[300px] pb-6  max-w-md:-[300%] relative overflow-hidden group cursor-pointer px-2px] md:px-0'>
           <div className='absolute top-5 ml-5 '> {bize}</div> 
 
           <Link  to={`/productDetails/${productId}`}>
-          <div className="object-cover w-[170px] h-[230px] md:h-[300px] md:w-[300px]  border-2 border-black">
+          <div className="object-cover w-[170px] h-[170px] lg:h-[300px] lg:w-[300px] md:h-[300px] md:w-[300px] sm:w-[150px] sm:h-[150px] border-2 border-black">
                 <img 
                   src={image} 
                   alt={image} 
-                  className={` `} 
+                  className={``} 
                 />
             </div>
           </Link>
@@ -55,8 +55,8 @@ const Products = ({colorVariant, bize, image, ProductPrice, ProductName, classNa
               </div>
               <div>
                 <div className={"flex gap-x-5 items-center  mr-[30px]"}>
-                  <span className='text-orange-500 text-[25px]' onClick={AddToCart}>
-                    <IoCart />
+                  <span className='text-orange-500 text-[25px]'>
+                    <IoCart  onClick={AddToCart} />
                   </span>
                 </div>
               </div>

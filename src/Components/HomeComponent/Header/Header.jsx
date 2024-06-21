@@ -4,7 +4,7 @@ import Logo from '../../../assets/Logo.png'
 import Flex from '../../CommonComponents/Flex'
 import { HiBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -39,9 +39,9 @@ const Header = () => {
                 <li className='font-normal font-DM_Sans text-sm text-main_text_color'>
                   <a href="#"> About </a>
                 </li>
-                <li className='font-normal font-DM_Sans text-sm text-main_text_color'>
-                  <a href="#"> Contacts </a>
-                </li>
+                <Link className='font-normal font-DM_Sans text-sm text-main_text_color'>
+                  <NavLink to={'/contacts'}>Contacts</NavLink>
+                </Link>
                 <li className='font-normal font-DM_Sans text-sm text-main_text_color'>
                   <a href="#"> Journal </a>
                 </li>

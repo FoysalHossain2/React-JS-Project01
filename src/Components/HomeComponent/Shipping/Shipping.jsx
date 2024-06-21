@@ -22,7 +22,7 @@ const Shipping = () => {
                 key={id}
                 >
                   <div className='text-xl font-bold'>{item.icon}</div>
-                  <p className={`text-[12px] ${id === 2 ? "text-green-400" : ""}`}>{item.title}</p>
+                  <p >{item.title}</p>
                 </ShippingItems>
               ))}
             </Flex>

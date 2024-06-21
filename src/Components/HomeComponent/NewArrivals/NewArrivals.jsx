@@ -121,18 +121,21 @@ function SampleNextArrow(props) {
       const dispatch = useDispatch();
       const {productId} = useParams();
       
-      const {data, status} = useSelector((state) => state.product)
+        useEffect(() => {
+          dispatch(FetchDataProduct(`https://dummyjson.com/products`))
+        }, [])
+        
+        
+          const {data, status} = useSelector((state) => state.product)
+          console.log(status);
+
+        useEffect(() => {
+          if (status === "IDLE" ) {
+            setAllProduct(data.products )
+          }
+        }, [data, AllProduct]) 
+
   
-    
-      useEffect(() => {
-        dispatch(FetchDataProduct(`https://dummyjson.com/products${productId}`))
-      }, [])
-      
-      useEffect(() => {
-        if (status === "IDLE" ) {
-          setAllProduct(data.products )
-        }
-      }, [data, status]) 
 
 
       
@@ -145,7 +148,7 @@ function SampleNextArrow(props) {
   
     return (
       <>
-        <div className='mt-32'>
+        <div className='mt-32 px-0 md:px-2'>
            <div className="container">
                 <h2 className='font-bold sm:text-[29px] md:text-[33px] lg:text-[39px] pb-12'>
                    {headingTitle ?  headingTitle : "Title is Missing"}
@@ -153,22 +156,22 @@ function SampleNextArrow(props) {
 
                   <Slider {...settings} className='flex justify-between'>
                     {AllProduct?.map((ProductItem, id) => (
-                <div className='w-[100%]'>
-                      <Products key={id}
-                        AddToCart={() => HandelAddToCart(ProductItem)}
-                        image={ProductItem.thumbnail}
-                        ProductName={ProductItem.title}
-                        bize={ 
-                          ProductItem.bize === true ? (
-                            <Button 
-                            title={ProductItem.bizeItem === true ? 'New' : ProductItem.discountOffer}
-                            className={'bg-black text-[10px] md:text-base text-white py-[4px] md:py-[9px] px-[23px] md:px-[33px] '}
-                          /> 
-                          ): null
-                        
-                        }
-                      />
-                </div>
+                    <div className='w-[100%]' key={id}>
+                          <Products key={id}
+                            AddToCart={() => HandelAddToCart(ProductItem)}
+                            image={ProductItem.thumbnail}
+                            ProductName={ProductItem.title}
+                            bize={ 
+                              ProductItem.bize === true ? (
+                                <Button 
+                                title={ProductItem.bizeItem === true ? 'New' : ProductItem.discountOffer}
+                                className={'bg-black text-[10px] md:text-base text-white py-[4px] md:py-[9px] px-[23px] md:px-[33px] '}
+                              /> 
+                              ): null
+                            
+                            }
+                          />
+                    </div>
                       ))}
                   </Slider>  
           </div>

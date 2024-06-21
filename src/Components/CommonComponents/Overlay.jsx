@@ -24,7 +24,7 @@ const Overlay = ({
                 {discountDetailsLast}
             </p>
             <Button 
-              className={'rounded-sm bg-main_text_color md:py-2 md:px-[18px] lg:px-[54px] lg:py-4 sm:py-4 sm:px-8  text-white lg:text-base md:text-[12px] sm:text-[12px] hover:bg-slate-800 cursor-pointer'}
+              className={'rounded-sm bg-main_text_color md:py-2 md:px-[18px] lg:px-[54px] lg:py-4 sm:py-2 sm:px-2 px-3 py-2  text-white lg:text-base md:text-[12px] sm:text-[12px] text-[12px] hover:bg-slate-800 cursor-pointer'}
               title={btnTitle}
               onClickButton={onClickButton}
             />

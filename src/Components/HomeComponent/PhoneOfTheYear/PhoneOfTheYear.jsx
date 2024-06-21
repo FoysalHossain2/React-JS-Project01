@@ -17,7 +17,7 @@ const PhoneOfTheYear = () => {
 
   return (
     <>
-     <div className='mt-[130px]'>
+     <div className='mt-[130px] px-0 md:px-2'>
         <div className="container">
            <div className={'sm:flex flex-col md:flex-row gap-x-12'}>
                 <div className='w-full md:w-[60%]'>
