@@ -99,7 +99,7 @@ const Banner = () => {
 
   return (
     <>
-      <Slider {...settings}>
+      <Slider {...settings} className='w-full'>
       <div>
         <img src={BannerImg} alt="" />
       </div>
