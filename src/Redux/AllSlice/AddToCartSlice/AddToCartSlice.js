@@ -88,7 +88,6 @@ export const AddToCardSlice = createSlice({
             );
             state.TotalCartItem = totalCarts.totalItems;
             state.TotalAmount = totalCarts.totalAmount
-            console.log(totalCarts);
         }
     }
 })

@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <>
     
-      <div className='py-[31px] bg-bg_Primary_color px-3 md:px-0'>
+      <div className='py-[31px] bg-bg_Primary_color px-4 lg:px-0 md:px-4'>
          <div className="container">
          <Flex className='sm:justify-between md:items-center '>
           <picture className=''>

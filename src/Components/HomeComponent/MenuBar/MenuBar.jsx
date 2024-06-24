@@ -12,13 +12,16 @@ import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import { Link , useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { RemoveCartItem } from '../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice'
+import { getTotal } from '../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice'
 
+console.log(getTotal);
 
 const  MenuBar = () => {
 
   const [singUp, setSingUp] = useState(false);
   const [showCategory, setShowCategory] =useState(false); 
   const [ShoppingCart, setShoppingCart] =useState(false); 
+  const [ShoppingCartItem, setShoppingCartItem] =useState([]); 
   const [CheckoutPage, setCheckoutPage] =useState(false); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -70,6 +73,13 @@ useEffect(() => {
 
 
 const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
+
+
+useEffect(() => {
+  dispatch(getTotal())
+}, [dispatch, TotalCartItem, TotalAmount, CartItem])
+
+
 
 // HandleDeleted functionality
 const HandleDeleted = (items) => {

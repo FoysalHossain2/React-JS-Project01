@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import BreadCrumb from '../../Components/CommonComponents/BreadCrumb/BreadCrumb'
 import { ErrorMessage } from '../../../Utils/Utils'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 const LoginComponent = () => {
 
+  const navigate = useNavigate()
   const [UserInLogin, setUserInLogin] = useState({
     email: "",
     password: "",
@@ -28,6 +31,17 @@ const LoginComponent = () => {
     } else if (!password) {
       ErrorMessage('Your password is not valid')
     } else {
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userInfo) => {
+        onAuthStateChanged(auth, (user) => {
+          if (user.emailVerified) {
+            navigate('/checkout')
+
+          } else {
+             
+          }
+        })
+      })
       SuccessMessage('Every thing is ok')
     }
   }
