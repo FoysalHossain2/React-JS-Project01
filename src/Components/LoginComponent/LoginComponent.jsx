@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import BreadCrumb from '../../Components/CommonComponents/BreadCrumb/BreadCrumb'
-import { ErrorMessage } from '../../../Utils/Utils'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { ErrorMessage, SuccessMessage, checkEmail } from '../../../Utils/Utils'
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 const LoginComponent = () => {
 
+  const auth = getAuth()
   const navigate = useNavigate()
   const [UserInLogin, setUserInLogin] = useState({
     email: "",
@@ -26,7 +27,7 @@ const LoginComponent = () => {
   const HandleLogin = (e) => {
     e.preventDefault()
     const {email, password} = UserInLogin;
-    if (!email || !checkEmail(email)) {
+    if (!email || !checkEmail (email)) {
      ErrorMessage('Your email is not valid') 
     } else if (!password) {
       ErrorMessage('Your password is not valid')
@@ -34,15 +35,20 @@ const LoginComponent = () => {
       signInWithEmailAndPassword(auth, email, password)
       .then((userInfo) => {
         onAuthStateChanged(auth, (user) => {
-          if (user.emailVerified) {
-            navigate('/checkout')
+          console.log(user.emailVerified);
+          // if (user.email) {
+          //   navigate('/checkout')
+          //   SuccessMessage(`${user.email} Login success`)
 
-          } else {
-             
-          }
+          // } else {
+          //    ErrorMessage(
+          //     `${user.email} Is Not verified Please check Your email`
+          //    )
+          // }
         })
+      }) .catch((err) => {
+        ErrorMessage(err.message)
       })
-      SuccessMessage('Every thing is ok')
     }
   }
 
