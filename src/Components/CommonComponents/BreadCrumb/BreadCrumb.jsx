@@ -27,11 +27,11 @@ const BreadCrumb = () => {
                   <li key={path}>
                   {isLogDin ? (
                     <Link   className={`${isLogDin ? "text-red-400" : "text-red-400" }`} >                    
-                    <h1><span className='text-black ml-2 mr-1'>/</span> { path} </h1>
+                    <h1><span className='text-black ml-2 mr-1'>/</span> { path } </h1>
                     </Link>
                   ) : (
-                    <Link   className={`${ isLogDin? "text-red-400" : "text-red-400"  }`} >
-                      <h1><span className='text-black ml-2 mr-1'>/</span> { path}</h1>
+                    <Link   className={`${ isLogDin? "text-red-400" : "text-red-400"  }`} to={BreadCrumbList}>
+                      <h1><span className='text-black ml-2 mr-1'>/</span> { path }</h1>
                     </Link>
                   )}
                 </li>
