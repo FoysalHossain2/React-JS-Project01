@@ -14,7 +14,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RemoveCartItem } from '../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice'
 import { getTotal } from '../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice'
 
-console.log(getTotal);
+
+
 
 const  MenuBar = () => {
 
@@ -101,6 +102,12 @@ const HandleCheckoutPage = () => {
 }
 
 
+// HandleSearch functionality
+const HandleSearch = () => {
+
+}
+
+
 
   return (
     <>   
@@ -147,7 +154,8 @@ const HandleCheckoutPage = () => {
                   {/*=========== search option ==========  */}
                   <div>
                     <Search
-                    type={'text'}
+                     type={'text'}
+                     OnSearch={HandleSearch}
                      placeholder='Search Products'
                      className='font-normal text-sm '  />
                  </div>
