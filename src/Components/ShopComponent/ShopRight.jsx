@@ -15,7 +15,7 @@ const ShopRight = ({className}) => {
     setPageChange(e.target.value);
   }
 
-  //HandleGride change function implementation  
+  //HandleGride change function implementation  below
   const HandleGrideChange = () => {
     setGrideLayout(!GrideLayout)
   }
