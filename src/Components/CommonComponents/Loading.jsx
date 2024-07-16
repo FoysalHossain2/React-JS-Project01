@@ -11,7 +11,7 @@ const Loading = ({className, PageChange}) => {
              key={item + ""}
            >
              <div key={item + ""}>
-               <div className="relative h-[450px] w-full animate-pulse rounded-lg bg-gray-200">
+               <div className=" h-[450px] w-full animate-pulse rounded-lg bg-gray-200">
                  <div className=" my-4 flex h-full animate-pulse flex-col items-center justify-center gap-y-5">
                    <div className=" h-3 w-[80%]  rounded-md bg-gray-500 py-3"></div>
                    <div className="  h-3 w-[80%]  rounded-md bg-gray-400 py-3"></div>

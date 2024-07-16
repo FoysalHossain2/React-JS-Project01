@@ -27,12 +27,13 @@ export const productSlice = createSlice({
 
 // make a thunk function for getting data 
 export const FetchDataProduct = (ApiUrl) => {
-  return async function GetProduct(dispatch, getState) {
+  return async function (dispatch, getState) {
     try {
       dispatch(SetStatus(ApiStatus.LOADING))
       const response = await fetch(ApiUrl);
       const data = await response.json();
         dispatch(SetProducts(data));
+        console.log(data);
         dispatch(SetStatus(ApiStatus.IDLE));
     } catch (error) {
       console.log(error);

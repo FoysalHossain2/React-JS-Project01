@@ -5,6 +5,7 @@ import Flex from '../../CommonComponents/Flex'
 
 const ShopCatagories = ({CatagoriesData, shopLeftTitle}) => {
 
+
   const [ShowCategories, setShowCategories] = useState(CatagoriesData.map(() => false));
 
   // HandleCategory function
@@ -15,6 +16,8 @@ const HandleCategoryToggle = (idIn) => {
     )
   })
 }
+
+console.log(ShowCategories);
 
 
 

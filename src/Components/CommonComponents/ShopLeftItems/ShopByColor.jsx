@@ -28,7 +28,7 @@ const ShopByColor = ({shopLeftColorTitle, ShopColorData, color}) => {
             {ShopColorShow && (
               <div className='divide-y-2 divide-solid divide-[#F0F0F0]'>
                 {ShopColorData?.map((item, id) => (
-                  <div  className='py-5' key={item.id}>
+                  <div  className='py-5' key={id}>
                     <Flex className={'items-center gap-3'}>
                       {color && (
                        <div className='h-3 w-3 bg-red-500 rounded-md' style={{backgroundColor: `${item.ColorCode}`}}></div>

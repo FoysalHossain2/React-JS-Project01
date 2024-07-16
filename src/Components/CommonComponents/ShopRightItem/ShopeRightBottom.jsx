@@ -32,7 +32,7 @@ const ShopeRightBottom = () => {
   
   useEffect(() => {
     if (status === "IDLE" ) {
-      setAllProducts(data.products )
+      setAllProducts(data.products)
     }
   }, [data, status])  
 
@@ -40,10 +40,11 @@ const ShopeRightBottom = () => {
 
   // Handle pagination  function
   const HandlePagesNumbers = (pageNumber) => {
-    if (pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / PageChange + 1 ) ) {
+    if ( pageNumber > 0 && pageNumber <= Math.floor(AllProducts.length / PageChange + 1 ) ) {
       setPage(pageNumber);
     }
   }
+  console.log(page);
 
 
   /**
@@ -60,10 +61,12 @@ const ShopeRightBottom = () => {
   return (
     <>
       <div className='mt-14 px-1 md:px-0'>
-        <h1>{status}</h1>
-        {status === "LOADING" ? (
-          <Loading PageChange={PageChange} />
-        ) : status === "ERROR" ? (
+        {status === "LOADING" 
+        ? 
+        (<Loading PageChange={PageChange} />) 
+        : status === "ERROR" 
+        ?
+         (
           <div>
             <ErrorPage/>
           </div>
@@ -74,7 +77,7 @@ const ShopeRightBottom = () => {
           <div className={``}>
               <div className={`flex flex-wrap gap-y-5 gap-x-4 justify-between ${GrideLayout ? 'flex flex-col' : ''} `}>          
                   {AllProducts?.slice(page * PageChange - PageChange, page * PageChange).map((ProductsItem, id) => (
-                    <div className={`w-[32%]  ${GrideLayout && 'w-full'}`} key={ProductsItem.id}>
+                    <div className={`w-[32%]  ${GrideLayout && 'w-full'}`} key={id}>
 
                       <Products     
                         AddToCart={()=>HandelAddToCart(ProductsItem)}            
