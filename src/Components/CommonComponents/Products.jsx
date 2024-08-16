@@ -7,13 +7,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FetchDataProduct } from '../../Redux/AllSlice/ProduceSlice/ProductSlice';
 
+
+
 const Products = ({colorVariant, bize, image, ProductPrice, ProductName, className, GrideLayout, productId, AddToCart}) => {
-
-
-
-      
-      // console.log(AllProducts);
-
 
   return (
     <>

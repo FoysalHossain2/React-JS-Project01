@@ -2,6 +2,8 @@ import React from 'react'
 
 const ProductDetailsTop = ({EachProductImg}) => {
 
+  console.log(EachProductImg);
+
   return (
     <>
      <div>

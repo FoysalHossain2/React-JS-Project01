@@ -156,7 +156,7 @@ function SampleNextArrow(props) {
 
                   <Slider {...settings} className='flex justify-between'>
                     {AllProduct?.map((ProductItem, id) => (
-                    <div className='w-[100%]' key={id}>
+                    <div className='w-[100%] ' key={id}>
                           <Products key={id}
                             AddToCart={() => HandelAddToCart(ProductItem)}
                             image={ProductItem.thumbnail}

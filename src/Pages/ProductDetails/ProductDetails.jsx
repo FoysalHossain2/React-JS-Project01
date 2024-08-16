@@ -33,8 +33,6 @@ const ProductDetails = () => {
   }, [data, status])
 
 
-
-
   // HandleAddToCart functionally
   const HandleAddToCart = () => {
     dispatch(addToCart(EachProduct))
@@ -71,6 +69,7 @@ const ProductDetails = () => {
         {/* Product bottom part */}
         <div>
         </div>
+        <h1></h1>
           <div className='mt-[45px]'>
             <h2  className='font-bold text-[39px] pb-3'>{EachProduct.title ? EachProduct.title : "Product"}</h2>
             <RatingStar ratingStar={EachProduct.rating} />

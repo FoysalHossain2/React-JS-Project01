@@ -19,6 +19,7 @@ export const AddToCardSlice = createSlice({
             const findIndex = state.CartItem.findIndex((item) => {
                 return item.id === action.payload.id
             })
+            
 
             if(findIndex >= 0) {
                 state.CartItem[findIndex].CartQuantity += 1;
